@@ -1,0 +1,2759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Words That Think · 1984 Vocabulary</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+<!-- No external font dependencies — fully offline -->
+<style>
+:root {
+  --bg:       #06131a;
+  --panel:    #0b1b24;
+  --panel2:   #0e2230;
+  --stroke:   #7ad0e0;
+  --text:     #e7fbff;
+  --muted:    #9fd6df;
+  --muted2:   #4a6e78;
+  --bad:      #ff5c7a;
+  --good:     #6ef7c8;
+  --gold:     #f0c040;
+  --gold2:    #ffe080;
+  --s35:      rgba(122,208,224,.35);
+  --s60:      rgba(122,208,224,.60);
+  --s20:      rgba(122,208,224,.20);
+  --o15:      rgba(0,0,0,.15);
+  --o25:      rgba(0,0,0,.25);
+  --panel-a:  rgba(11,27,36,.90);
+  --good15:   rgba(110,247,200,.15);
+  --good60:   rgba(110,247,200,.60);
+  --bad12:    rgba(255,92,122,.12);
+  --bad55:    rgba(255,92,122,.55);
+  --gold10:   rgba(240,192,64,.10);
+  --gold50:   rgba(240,192,64,.50);
+}
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: radial-gradient(900px 600px at 50% 0%, var(--panel2) 0%, var(--bg) 65%);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+button { font-family: inherit; color: var(--text); cursor: pointer; }
+
+/* ── WRAPPER ── */
+.wrapper { max-width: 680px; margin: 0 auto; padding: 0 14px; }
+
+/* ── HEADER ── */
+.app-header {
+  text-align: center;
+  padding: 32px 10px 22px;
+  border-bottom: 1px solid var(--s20);
+}
+.app-header h1 {
+  font-family: Georgia, 'Times New Roman', 'Songti SC', serif;
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-weight: 700;
+  color: var(--good);
+  letter-spacing: .01em;
+  text-shadow: 0 0 30px rgba(110,247,200,.25);
+  line-height: 1.15;
+}
+.app-header .tagline {
+  margin-top: 8px;
+  font-size: clamp(0.85rem, 3vw, 1rem);
+  color: var(--muted);
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.app-header .book-credit {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--muted2);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.header-star-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.header-badge {
+  background: var(--panel-a);
+  border: 1px solid var(--s35);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.header-badge:hover { background: rgba(122,208,224,.08); border-color: var(--s60); }
+.header-badge.active { background: var(--good15); border-color: var(--good60); color: var(--good); }
+
+/* ── GROUP NAV ── */
+.group-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+  background: var(--panel);
+  border: 1px solid var(--s35);
+  border-radius: 16px;
+  padding: 10px 14px;
+}
+.group-nav-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+.group-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted2);
+  font-weight: 700;
+}
+.group-num {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--good);
+  letter-spacing: .02em;
+}
+.group-dots {
+  display: flex;
+  gap: 5px;
+  margin-top: 3px;
+}
+.group-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--muted2);
+  transition: background .2s, transform .2s;
+}
+.group-dot.active { background: var(--good); transform: scale(1.3); }
+.group-dot.done { background: var(--s60); }
+.nav-pill {
+  background: rgba(122,208,224,.08);
+  border: 1px solid var(--s35);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--muted);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.nav-pill:hover:not(:disabled) { background: rgba(122,208,224,.15); border-color: var(--s60); color: var(--text); }
+.nav-pill:disabled { opacity: .35; pointer-events: none; }
+
+/* ── WORD NAV ── */
+.word-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 0 2px;
+}
+.word-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+}
+.word-counter {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+.word-counter span { color: var(--text); }
+.icon-btn {
+  background: rgba(122,208,224,.08);
+  border: 1px solid var(--s35);
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: all .15s;
+  color: var(--muted);
+}
+.icon-btn:hover { background: rgba(122,208,224,.15); border-color: var(--s60); color: var(--text); }
+.icon-btn.starred { color: var(--gold); border-color: var(--gold50); background: var(--gold10); }
+.icon-btn:disabled { opacity: .3; pointer-events: none; }
+
+/* ── WORD CARD ── */
+.word-card {
+  margin-top: 10px;
+  background: linear-gradient(160deg, rgba(14,34,48,.85), rgba(11,27,36,.95));
+  border: 1px solid var(--s35);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.word-card-top {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--s20);
+}
+.word-left { display: flex; flex-direction: column; gap: 4px; }
+.word-display {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: .02em;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(240,192,64,.2);
+}
+.pron-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pron-text {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: .03em;
+}
+.speak-btn {
+  background: var(--good15);
+  border: 1px solid var(--good60);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--good);
+  transition: all .15s;
+}
+.speak-btn:hover { background: rgba(110,247,200,.25); }
+.chapter-badge {
+  background: rgba(122,208,224,.08);
+  border: 1px solid var(--s35);
+  border-radius: 8px;
+  padding: 4px 9px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* ── DEFINITION ── */
+.definition-block {
+  padding: 14px 20px 16px;
+  border-bottom: 1px solid var(--s20);
+}
+.def-en {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(231,251,255,.9);
+}
+.def-zh {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ── SENTENCE TOGGLE ── */
+.sentence-tab-row {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--s20);
+}
+.sent-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted2);
+  transition: all .15s;
+  text-align: center;
+}
+.sent-tab:hover { color: var(--muted); background: rgba(122,208,224,.04); }
+.sent-tab.active {
+  color: var(--good);
+  border-bottom-color: var(--good);
+  background: rgba(110,247,200,.04);
+}
+
+/* ── SENTENCE CONTENT ── */
+.sentence-content {
+  padding: 18px 20px 20px;
+}
+.sent-en {
+  font-family: Georgia, 'Times New Roman', 'Songti SC', serif;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  line-height: 1.85;
+  color: rgba(231,251,255,.88);
+  font-style: italic;
+}
+.sent-zh {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-top: 12px;
+  font-weight: 400;
+  padding-top: 12px;
+  border-top: 1px solid var(--s20);
+}
+.sent-en .hl {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--gold2);
+  background: rgba(240,192,64,.08);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.sent-source {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: var(--muted2);
+  text-align: right;
+  letter-spacing: .04em;
+}
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  margin-top: 14px;
+  background: var(--panel);
+  border: 1px solid var(--s35);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+}
+.quiz-header:hover { background: rgba(122,208,224,.05); }
+.quiz-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quiz-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.quiz-subtitle {
+  font-size: 0.75rem;
+  color: var(--muted2);
+  margin-top: 1px;
+}
+.quiz-score-badge {
+  background: var(--good15);
+  border: 1px solid var(--good60);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--good);
+  display: none;
+}
+.quiz-toggle-icon { font-size: 0.85rem; color: var(--muted2); transition: transform .2s; }
+.quiz-toggle-icon.open { transform: rotate(180deg); }
+
+.quiz-body {
+  display: none;
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--s20);
+}
+.quiz-body.open { display: block; }
+
+.quiz-progress-bar {
+  height: 4px;
+  background: rgba(122,208,224,.12);
+  border-radius: 999px;
+  margin: 14px 0 16px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--good), #4edfc9);
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+
+.quiz-q-num {
+  font-size: 0.75rem;
+  color: var(--muted2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 10px;
+}
+
+.quiz-sentence {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(0.88rem, 2.8vw, 0.96rem);
+  line-height: 1.8;
+  color: rgba(231,251,255,.9);
+  background: rgba(122,208,224,.05);
+  border: 1px solid var(--s20);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.blank { color: var(--gold); font-style: normal; font-weight: 700; letter-spacing: .1em; }
+
+.quiz-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.choice-btn {
+  background: rgba(122,208,224,.06);
+  border: 1px solid var(--s35);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: left;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.choice-btn:hover:not(:disabled) { background: rgba(122,208,224,.12); border-color: var(--s60); }
+.choice-btn .choice-label {
+  background: var(--s35);
+  border-radius: 4px;
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.choice-btn.correct { background: var(--good15); border-color: var(--good60); color: var(--good); }
+.choice-btn.wrong   { background: var(--bad12);  border-color: var(--bad55);  color: var(--bad); }
+.choice-btn:disabled { pointer-events: none; opacity: .7; }
+
+.quiz-feedback {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: none;
+}
+.quiz-feedback.correct-fb { background: var(--good15); color: var(--good); border: 1px solid var(--good60); }
+.quiz-feedback.wrong-fb   { background: var(--bad12);  color: var(--bad);  border: 1px solid var(--bad55); }
+
+.quiz-next-btn {
+  background: rgba(122,208,224,.1);
+  border: 1px solid var(--s60);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text);
+  display: none;
+  transition: background .15s;
+}
+.quiz-next-btn:hover { background: rgba(122,208,224,.18); }
+
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 16px 0 4px;
+}
+.quiz-result-score {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--good);
+  line-height: 1;
+}
+.quiz-result-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+.quiz-result-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.quiz-retry-btn {
+  background: var(--good15);
+  border: 1px solid var(--good60);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--good);
+  transition: background .15s;
+}
+.quiz-retry-btn:hover { background: rgba(110,247,200,.25); }
+
+.quiz-start-area {
+  padding: 16px 0 4px;
+  text-align: center;
+}
+.quiz-start-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.quiz-start-btn {
+  background: var(--good15);
+  border: 1px solid var(--good60);
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--good);
+  transition: background .15s;
+}
+.quiz-start-btn:hover { background: rgba(110,247,200,.25); }
+.quiz-skip-btn {
+  background: none;
+  border: none;
+  color: var(--muted2);
+  font-size: 0.78rem;
+  margin-left: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── STARRED SECTION ── */
+.starred-section {
+  margin-top: 14px;
+  background: var(--panel);
+  border: 1px solid var(--s35);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.starred-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+}
+.starred-header:hover { background: rgba(240,192,64,.04); }
+.starred-header-left { display: flex; align-items: center; gap: 10px; }
+.starred-title { font-size: 0.9rem; font-weight: 800; color: var(--text); }
+.starred-count {
+  background: var(--gold10);
+  border: 1px solid var(--gold50);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.starred-body { display: none; padding: 0 18px 18px; border-top: 1px solid var(--s20); }
+.starred-body.open { display: block; }
+.starred-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 14px;
+}
+.starred-chip {
+  background: var(--gold10);
+  border: 1px solid var(--gold50);
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all .15s;
+}
+.starred-chip:hover { background: rgba(240,192,64,.18); }
+.starred-empty {
+  padding-top: 14px;
+  font-size: 0.85rem;
+  color: var(--muted2);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ── MY SENTENCES ── */
+.my-sentences-block {
+  padding: 16px 20px 18px;
+  border-top: 1px solid var(--s20);
+}
+.my-sent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.my-sent-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--muted);
+  letter-spacing: .02em;
+}
+.my-sent-counter {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted2);
+  background: var(--o25);
+  border: 1px solid var(--s20);
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+.my-sent-counter.full { color: var(--gold); border-color: var(--gold50); background: var(--gold10); }
+.my-sent-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.my-sent-input {
+  flex: 1;
+  background: rgba(122,208,224,.06);
+  border: 1px solid var(--s35);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 9px 13px;
+  outline: none;
+  transition: border-color .15s;
+  min-width: 0;
+}
+.my-sent-input:focus { border-color: var(--s60); background: rgba(122,208,224,.09); }
+.my-sent-input::placeholder { color: var(--muted2); }
+.my-sent-save-btn {
+  background: rgba(122,208,224,.1);
+  border: 1px solid var(--s60);
+  border-radius: 12px;
+  padding: 9px 16px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--stroke);
+  white-space: nowrap;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.my-sent-save-btn:hover { background: rgba(122,208,224,.2); }
+.my-sent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+}
+.my-sent-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(122,208,224,.05);
+  border: 1px solid var(--s20);
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+.my-sent-num {
+  font-size: 0.68rem;
+  font-weight: 900;
+  color: var(--muted2);
+  background: var(--s20);
+  border-radius: 4px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.my-sent-text {
+  flex: 1;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(231,251,255,.85);
+}
+.my-sent-del {
+  background: none;
+  border: none;
+  color: var(--muted2);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 3px;
+  flex-shrink: 0;
+  opacity: .6;
+  transition: color .15s, opacity .15s;
+}
+.my-sent-del:hover { color: var(--bad); opacity: 1; }
+
+/* ── STARRED QUIZ ── */
+.starred-quiz-divider {
+  height: 1px;
+  background: var(--s20);
+  margin: 14px 0;
+}
+.sq-start-area { text-align: center; padding-bottom: 4px; }
+.sq-desc {
+  font-size: 0.82rem;
+  color: var(--muted2);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.sq-unlock-hint {
+  font-size: 0.75rem;
+  color: var(--muted2);
+  font-style: italic;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 36px;
+  padding: 20px 14px 28px;
+  border-top: 1px solid var(--s20);
+  text-align: center;
+}
+.footer-author {
+  font-size: 0.8rem;
+  color: var(--muted2);
+  line-height: 1.9;
+}
+.footer-author a { color: var(--muted); text-decoration: none; }
+.footer-author a:hover { color: var(--stroke); }
+.footer-quote {
+  margin-top: 12px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--muted2);
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* ── TOAST ── */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(11,27,36,.96);
+  border: 1px solid var(--s60);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  white-space: nowrap;
+  z-index: 9999;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+#toast.gold { border-color: var(--gold50); color: var(--gold); }
+#toast.good { border-color: var(--good60); color: var(--good); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .word-card-top { flex-wrap: wrap; }
+  .quiz-choices { grid-template-columns: 1fr; }
+  .group-dots { display: none; }
+  .nav-pill { padding: 7px 12px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="app-header">
+    <h1>Words That Think</h1>
+    <div class="tagline">Increase your vocabulary. Strengthen your thought.</div>
+    <div class="book-credit">100 words &middot; 100 sentences &middot; George Orwell's 1984</div>
+    <div class="header-star-row">
+      <button class="header-badge" id="starredToggleBtn">⭐ Starred Words (<span id="starredCountHeader">0</span>)</button>
+    </div>
+  </div>
+
+  <!-- GROUP NAV -->
+  <div class="group-nav">
+    <button class="nav-pill" id="prevGroupBtn">&#8592; Prev</button>
+    <div class="group-nav-center">
+      <div class="group-label">Group</div>
+      <div class="group-num" id="groupNumDisplay">1 / 10</div>
+      <div class="group-dots" id="groupDots"></div>
+    </div>
+    <button class="nav-pill" id="nextGroupBtn">Next &#8594;</button>
+  </div>
+
+  <!-- WORD NAV -->
+  <div class="word-nav">
+    <button class="nav-pill" id="prevWordBtn">&#8592;</button>
+    <div class="word-nav-center">
+      <div class="word-counter">Word <span id="wordNumDisplay">1</span> / <span id="groupSizeDisplay">10</span></div>
+      <button class="icon-btn" id="starBtn" title="Star this word">☆</button>
+      <button class="icon-btn" id="speakBtn" title="Hear pronunciation">🔊</button>
+    </div>
+    <button class="nav-pill" id="nextWordBtn">Next &#8594;</button>
+  </div>
+
+  <!-- WORD CARD -->
+  <div class="word-card" id="wordCard">
+    <!-- Top: word + chapter -->
+    <div class="word-card-top">
+      <div class="word-left">
+        <div class="word-display" id="wordDisplay">—</div>
+        <div class="pron-row">
+          <span class="pron-text" id="pronDisplay">—</span>
+          <button class="speak-btn" id="speakBtn2">🔊 Hear it</button>
+        </div>
+      </div>
+      <div class="chapter-badge" id="chapterBadge">—</div>
+    </div>
+
+    <!-- Definition -->
+    <div class="definition-block">
+      <div class="def-en" id="defEn">—</div>
+      <div class="def-zh" id="defZh">—</div>
+    </div>
+
+    <!-- Sentence tabs -->
+    <div class="sentence-tab-row">
+      <button class="sent-tab active" id="tabNovel">📖 From the Novel</button>
+      <button class="sent-tab" id="tabAI">💡 AI Example</button>
+    </div>
+
+    <!-- Sentence content -->
+    <div class="sentence-content">
+      <div class="sent-en" id="sentEn">—</div>
+      <div class="sent-zh" id="sentZh">—</div>
+      <div class="sent-source" id="sentSource">—</div>
+    </div>
+
+    <!-- My Sentences -->
+    <div class="my-sentences-block">
+      <div class="my-sent-header">
+        <span class="my-sent-title">✍️ My Sentences</span>
+        <span class="my-sent-counter" id="mySentCounter">0 / 3</span>
+      </div>
+      <div class="my-sent-input-row">
+        <input type="text" class="my-sent-input" id="mySentInput"
+          placeholder="Write your own sentence using this word…"
+          autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="my-sent-save-btn" id="mySentSaveBtn">Save</button>
+      </div>
+      <div class="my-sent-list" id="mySentList"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ SECTION -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header" id="quizHeader">
+      <div class="quiz-header-left">
+        <div>
+          <div class="quiz-title">📝 Group Quiz</div>
+          <div class="quiz-subtitle" id="quizSubtitle">Fill-in-the-blank · Orwell's sentences</div>
+        </div>
+        <div class="quiz-score-badge" id="quizScoreBadge">—</div>
+      </div>
+      <div>
+        <span class="quiz-toggle-icon" id="quizToggleIcon">▾</span>
+      </div>
+    </div>
+    <div class="quiz-body" id="quizBody">
+      <!-- Start area -->
+      <div class="quiz-start-area" id="quizStartArea">
+        <div class="quiz-start-desc" id="quizStartDesc">Test yourself on Group 1. Fill in the blanks using words from this group.</div>
+        <button class="quiz-start-btn" id="quizStartBtn">Start Quiz</button>
+        <button class="quiz-skip-btn" id="quizSkipBtn">Skip</button>
+      </div>
+      <!-- Question area -->
+      <div id="quizQuestionArea" style="display:none;">
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+        <div class="quiz-q-num" id="quizQNum">Question 1 / 10</div>
+        <div class="quiz-sentence" id="quizSentence">—</div>
+        <div class="quiz-choices" id="quizChoices"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <button class="quiz-next-btn" id="quizNextBtn">Next Question →</button>
+      </div>
+      <!-- Result area -->
+      <div class="quiz-result" id="quizResult">
+        <div class="quiz-result-score" id="quizResultScore">—</div>
+        <div class="quiz-result-label" id="quizResultLabel">—</div>
+        <div class="quiz-result-btns">
+          <button class="quiz-retry-btn" id="quizRetryBtn">↻ Retry Quiz</button>
+          <button class="quiz-skip-btn" id="quizCloseBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STARRED SECTION -->
+  <div class="starred-section" id="starredSection">
+    <div class="starred-header" id="starredHeader">
+      <div class="starred-header-left">
+        <div class="starred-title">⭐ Starred Words</div>
+        <div class="starred-count" id="starredCount">0</div>
+      </div>
+      <span class="quiz-toggle-icon" id="starredToggleIcon">▾</span>
+    </div>
+    <div class="starred-body" id="starredBody">
+      <div class="starred-list" id="starredList"></div>
+
+      <!-- Starred Words Quiz -->
+      <div class="starred-quiz-wrap" id="starredQuizWrap">
+        <div class="starred-quiz-divider"></div>
+        <div class="sq-start-area" id="sqStartArea">
+          <div class="sq-desc" id="sqDesc">Star 5 or more words to unlock your personal quiz.</div>
+          <button class="quiz-start-btn" id="sqStartBtn" style="display:none;">⭐ Quiz My Starred Words</button>
+          <div class="sq-unlock-hint" id="sqUnlockHint">(<span id="sqStarredCount">0</span> / 5 starred so far)</div>
+        </div>
+        <div id="sqQuestionArea" style="display:none;">
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="sqProgressFill"></div></div>
+          <div class="quiz-q-num" id="sqQNum">Question 1 / ?</div>
+          <div class="quiz-sentence" id="sqSentence">—</div>
+          <div class="quiz-choices" id="sqChoices"></div>
+          <div class="quiz-feedback" id="sqFeedback"></div>
+          <button class="quiz-next-btn" id="sqNextBtn">Next →</button>
+        </div>
+        <div class="quiz-result" id="sqResult" style="display:none;">
+          <div class="quiz-result-score" id="sqResultScore">—</div>
+          <div class="quiz-result-label" id="sqResultLabel">—</div>
+          <div class="quiz-result-btns">
+            <button class="quiz-retry-btn" id="sqRetryBtn">↻ Retry</button>
+            <button class="quiz-skip-btn" id="sqResetBtn">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-author">
+      Created by <strong>Daniel Wang</strong> &nbsp;·&nbsp;
+      Words from <em>George Orwell's 1984</em> (1949, Secker &amp; Warburg) &nbsp;·&nbsp;
+      For Educational Use &nbsp;·&nbsp; © 2026
+      <br>
+      Chinese translations for vocabulary reference purposes.
+      AI example sentences curated to reflect the themes of the novel.
+    </div>
+    <div class="footer-quote">
+      "Perhaps one did not want to be loved so much as to be understood."
+      <br>— George Orwell, 1984
+    </div>
+  </footer>
+
+</div><!-- /wrapper -->
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const VOCAB = [
+  {
+    word: `vile`,
+    pron: `/vaɪl/`,
+    def_en: `extremely unpleasant; morally reprehensible`,
+    def_zh: `卑鄙的；可耻的；糟糕透顶的`,
+    quote_en: `It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin nuzzled into his breast in an effort to escape the vile wind, slipped quickly through the glass doors of Victory Mansions.`,
+    quote_zh: `四月间，天气寒冷晴朗，钟敲了十三下。温斯顿·史密斯为了要躲寒风，紧缩着脖子，很快地挤进了胜利大厦的玻璃门。`,
+    ex_en: `In every totalitarian society, the vile stench of oppression permeates the air long before the first arrests are made.`,
+    ex_zh: `在每一个极权主义社会中，早在第一次逮捕之前，压迫的卑鄙恶臭就已经弥漫在空气中了。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `contrived`,
+    pron: `/kənˈtraɪvd/`,
+    def_en: `deliberately created rather than arising naturally; artificial`,
+    def_zh: `人为的；做作的`,
+    quote_en: `It was one of those pictures which are so contrived that the eyes follow you about when you move.`,
+    quote_zh: `这是属于这样的一类画，你不论走到哪里，画中的眼光总是跟着你。`,
+    ex_en: `The Party's contrived displays of spontaneous enthusiasm fooled no one but the most gullible.`,
+    ex_zh: `党的人为的所谓自发热情展示除了最易受骗的人外谁也骗不了。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `simultaneously`,
+    pron: `/ˌsaɪmlˈteɪniəsli/`,
+    def_en: `at the same time`,
+    def_zh: `同时地`,
+    quote_en: `The telescreen received and transmitted simultaneously.`,
+    quote_zh: `电幕能够同时接收和放送。`,
+    ex_en: `In a surveillance state, citizens are simultaneously watched and forced to watch others, creating a web of mutual suspicion.`,
+    ex_zh: `在监控国家中，公民同时被监视和被强迫监视他人，形成了相互猜疑的网络。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `scrutinized`,
+    pron: `/ˈskruːtənaɪzd/`,
+    def_en: `examined closely and critically`,
+    def_zh: `被仔细检查；被严密监视`,
+    quote_en: `You had to live—did live, from habit that became instinct—in the assumption that every sound you made was overheard, and, except in darkness, every movement scrutinized.`,
+    quote_zh: `你只能在这样的假定下生活——从已经成为本能的习惯出发，你早已这样生活了：你发出的每一个声音，都是有人听到的，你做出的每一个动作，除非在黑暗中，都是有人仔细观察的。`,
+    ex_en: `Under authoritarian regimes, every citizen feels scrutinized, their private lives dissected by unseen watchers.`,
+    ex_zh: `在威权政权下，每个公民都感到被严密监视，他们的私生活被看不见的监视者剖析。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `ramifications`,
+    pron: `/ˌræmɪfɪˈkeɪʃnz/`,
+    def_en: `complex consequences or分支 results; 分支；后果`,
+    def_zh: ``,
+    quote_en: `The Ministry of Truth contained, it was said, three thousand rooms above ground level, and corresponding ramifications below.`,
+    quote_zh: `据说，真理部在地面上有三千间屋子，和地面下的结构相等。`,
+    ex_en: `The ramifications of totalitarianism extend far beyond politics, poisoning art, language, and human relationships themselves.`,
+    ex_zh: `极权主义的后果远远超出政治范畴，它毒害艺术、语言和人际关系本身。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `dwarfed`,
+    pron: `/dwɔːrft/`,
+    def_en: `made to seem small or insignificant in comparison`,
+    def_zh: `使相形见绌`,
+    quote_en: `So completely did they dwarf the surrounding architecture that from the roof of Victory Mansions you could see all four of them simultaneously.`,
+    quote_zh: `它们使周围的建筑仿佛小巫见了大巫，因此你从胜利大厦的屋顶上可以同时看到这四所建筑。`,
+    ex_en: `In oppressive societies, the monuments to power deliberately dwarf the individual, reminding everyone of their insignificance.`,
+    ex_zh: `在压迫性社会中，权力的纪念碑故意使个人相形见绌，提醒每个人他们的微不足道。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `interminable`,
+    pron: `/ɪnˈtɜːrmɪnəbl/`,
+    def_en: `endless or apparently endless`,
+    def_zh: `冗长的；无止境的`,
+    quote_en: `All he had to do was to transfer to paper the interminable restless monologue that had been running inside his head, literally for years.`,
+    quote_zh: `他要做的只是把头脑里一直在想的、无休止的、无穷尽的独白付诸笔墨就行了。`,
+    ex_en: `The interminable propaganda broadcasts wore down the will to resist, replacing independent thought with mechanical acceptance.`,
+    ex_zh: `无休止的宣传广播消磨了反抗意志，用机械接受取代了独立思考。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `compromising`,
+    pron: `/ˈkɑːmprəmaɪzɪŋ/`,
+    def_en: `revealing embarrassing or incriminating information`,
+    def_zh: `有失体面的；危及名誉的`,
+    quote_en: `Even with nothing written in it, it was a compromising possession.`,
+    quote_zh: `即使里面没有写什么东西，有这样一个本子也是容易引起怀疑的。`,
+    ex_en: `In a surveillance state, any private act of rebellion, however small, becomes a compromising possession that could destroy you.`,
+    ex_zh: `在监控国家中，任何私人的反抗行为，无论多小，都可能成为毁灭你的危险证据。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `magnitude`,
+    pron: `/ˈmæɡnɪtuːd/`,
+    def_en: `great size, importance, or extent`,
+    def_zh: `巨大；重要性`,
+    quote_en: `For the first time the magnitude of what he had undertaken came home to him.`,
+    quote_zh: `他头一次领悟到了他要做的事情的艰巨性。`,
+    ex_en: `Only when facing the full magnitude of oppression does one understand the cost of freedom and the price of resistance.`,
+    ex_zh: `只有当面对压迫的巨大规模时，人们才理解自由的代价和反抗的代价。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `predicament`,
+    pron: `/prɪˈdɪkəmənt/`,
+    def_en: `a difficult, unpleasant, or embarrassing situation`,
+    def_zh: `困境；窘境`,
+    quote_en: `Either the future would resemble the present, in which case it would not listen to him: or it would be different from it, and his predicament would be meaningless.`,
+    quote_zh: `只有两种情况，要是未来同现在一样，在这样的情况下未来就不会听他的，要是未来同现在不一样，他的处境也就没有任何意义了。`,
+    ex_en: `The predicament of those living under tyranny is that their suffering is often invisible to the outside world.`,
+    ex_zh: `生活在暴政下的人的困境在于，他们的苦难往往不为外界所见。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `bigoted`,
+    pron: `/ˈbɪɡətɪd/`,
+    def_en: `obstinately and unreasonably attached to a particular set of beliefs`,
+    def_zh: `偏执的；顽固的`,
+    quote_en: `It was always the women, and above all the young ones, who were the most bigoted adherents of the Party.`,
+    quote_zh: `总是女人，尤其是年轻的女人，是党的最盲目的拥护者。`,
+    ex_en: `The most dangerous citizens in a dictatorship are not the critics but the bigoted true believers who enforce orthodoxy without question.`,
+    ex_zh: `独裁统治中最危险的公民不是批评者，而是那些不加质疑地推行正统的偏执信徒。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `formidable`,
+    pron: `/ˈfɔːrmɪdəbl/`,
+    def_en: `inspiring fear or respect through being impressively powerful`,
+    def_zh: `令人敬畏的；可怕的`,
+    quote_en: `In spite of his formidable appearance he had a certain charm of manner.`,
+    quote_zh: `尽管他的外表令人望而生畏，他的态度却一定迷人之处。`,
+    ex_en: `The most formidable aspect of totalitarianism is not its violence but its ability to make people love their oppressor.`,
+    ex_zh: `极权主义最可怕的一面不是它的暴力，而是它让人们热爱压迫者的能力。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `renegade`,
+    pron: `/ˈrenɪɡeɪd/`,
+    def_en: `a person who deserts and betrays an organization or set of principles`,
+    def_zh: `叛徒；变节者`,
+    quote_en: `Goldstein was the renegade and backslider who once, long ago, had been one of the leading figures of the Party.`,
+    quote_zh: `果尔德施坦因是个叛徒、变节分子，他一度是党的领导人物之一。`,
+    ex_en: `Every totalitarian regime creates a mythical renegade figure onto whom all evil can be projected and who can be endlessly reviled.`,
+    ex_zh: `每个极权主义政权都制造一个神话般的叛徒形象，所有的邪恶都可以投射到他身上，可以无休止地咒骂。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `specious`,
+    pron: `/ˈspiːʃəs/`,
+    def_en: `superficially plausible but actually wrong; misleading in appearance`,
+    def_zh: `似是而非的；华而不实的`,
+    quote_en: `Goldstein was delivering his usual venomous attack upon the doctrines of the Party—an attack so exaggerated and perverse that a child should have been able to see through it, and yet just plausible enough to fill one with an alarmed feeling that other people, less level-headed than oneself, might be taken in by it.`,
+    quote_zh: `果尔德施坦因在对党进行他一贯的恶毒攻击，这种攻击夸张其事，不讲道理，即使一个儿童也能一眼看穿，但是听起来却又似乎有些道理，使你觉得要提高警惕，别人要是没有你那么清醒的头脑，可能上当受骗。`,
+    ex_en: `The specious logic of tyranny sounds reasonable until you realize it requires abandoning everything you know to be true.`,
+    ex_zh: `暴政的似是而非的逻辑听起来合理，直到你意识到它需要放弃你所知道的一切真理。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `clandestinely`,
+    pron: `/klænˈdestɪnli/`,
+    def_en: `in a secret or covert way`,
+    def_zh: `秘密地；私下地`,
+    quote_en: `There were also whispered stories of a terrible book, a compendium of all the heresies, of which Goldstein was the author and which circulated clandestinely here and there.`,
+    quote_zh: `谣传还有一本可怕的书，集异端邪说之大成，到处秘密散发，作者就是果尔德施坦因。`,
+    ex_en: `In oppressive regimes, forbidden knowledge circulates clandestinely, passed from hand to hand like a precious flame.`,
+    ex_zh: `在压迫性政权中，被禁的知识秘密地传播，像珍贵的火焰一样从一只手传到另一只手。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `frenzy`,
+    pron: `/ˈfrenzi/`,
+    def_en: `a state of wild activity or panic`,
+    def_zh: `疯狂；狂乱`,
+    quote_en: `In its second minute the Hate rose to a frenzy.`,
+    quote_zh: `仇恨到了第二分钟达到了狂热的程度。`,
+    ex_en: `The manufactured frenzy of hatred directed at manufactured enemies prevents people from seeing their real oppression.`,
+    ex_zh: `对制造出来的敌人制造的仇恨狂潮阻止人们看到他们真正的压迫。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `vindictiveness`,
+    pron: `/vɪnˈdɪktɪvnəs/`,
+    def_en: `a strong desire for revenge`,
+    def_zh: `报复心；复仇欲`,
+    quote_en: `A hideous ecstasy of fear and vindictiveness, a desire to kill, to torture, to smash faces in with a sledge-hammer, seemed to flow through the whole group of people like an electric current.`,
+    quote_zh: `一种夹杂着恐惧和报复情绪的快意，一种要杀人、虐待、用大铁锤痛打别人脸孔的欲望，似乎像一股电流一般穿过了这一群人。`,
+    ex_en: `Totalitarianism feeds on collective vindictiveness, channeling personal frustrations into sanctioned hatred of designated enemies.`,
+    ex_zh: `极权主义依靠集体报复心来滋养，将个人挫折引导到对指定敌人的认可仇恨中。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `inscrutable`,
+    pron: `/ɪnˈskruːtəbl/`,
+    def_en: `impossible to understand or interpret`,
+    def_zh: `难以理解的；神秘莫测的`,
+    quote_en: `Then the flash of intelligence was gone, and O'Brien's face was as inscrutable as everybody else's.`,
+    quote_zh: `但是领悟的神情一闪即逝，奥勃良的脸又像别人的脸一样莫测高深了。`,
+    ex_en: `In a police state, faces become inscrutable masks because any visible emotion could be a fatal admission.`,
+    ex_zh: `在警察国家中，面孔变成了神秘莫测的面具，因为任何可见的情绪都可能是致命的坦白。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `equivocal`,
+    pron: `/ɪˈkwɪvəkl/`,
+    def_en: `open to more than one interpretation; ambiguous`,
+    def_zh: `模棱两可的；含糊的`,
+    quote_en: `For a second, two seconds, they had exchanged an equivocal glance, and that was the end of the story.`,
+    quote_zh: `他们不过是在一秒钟、两秒钟里交换了明白的眼光，事情就到此为止了。`,
+    ex_en: `Under tyranny, even the most equivocal glance can carry the weight of conspiracy and the promise of solidarity.`,
+    ex_zh: `在暴政下，即使最模棱两可的目光也能承载阴谋的重量和团结的承诺。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `vaporized`,
+    pron: `/ˈveɪpəraɪzd/`,
+    def_en: `destroyed or eliminated completely; made to disappear`,
+    def_zh: `被消灭；化为乌有`,
+    quote_en: `You were abolished, annihilated: vapourized was the usual word.`,
+    quote_zh: `你被取消，消灭了：通常用的字眼是化为乌有。`,
+    ex_en: `In totalitarian states, people are not merely killed but vaporized from history, their existence denied and forgotten.`,
+    ex_zh: `在极权主义国家，人们不仅被杀死，而且从历史上被消灭，他们的存在被否认和遗忘。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `palimpsest`,
+    pron: `/ˈpælɪmpsest/`,
+    def_en: `a manuscript or piece of writing on which the original text has been effaced to make room for another; something reused or altered while still bearing traces of its earlier form`,
+    def_zh: `重写本；留有早期痕迹的事物`,
+    quote_en: `All history was a palimpsest, scraped clean and reinscribed exactly as often as was necessary.`,
+    quote_zh: `全部历史都像一张不断刮干净重写的羊皮纸。`,
+    ex_en: `When history becomes a palimpsest, rewritten at the whim of power, the very concept of truth begins to dissolve.`,
+    ex_zh: `当历史变成可以随意重写的重写本时，真理的概念本身就开始瓦解。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `falsification`,
+    pron: `/ˌfɔːlsɪfɪˈkeɪʃn/`,
+    def_en: `the action of falsifying or misrepresenting something`,
+    def_zh: `伪造；篡改`,
+    quote_en: `In no case would it have been possible, once the deed was done, to prove that any falsification had taken place.`,
+    quote_zh: `这一工作完成以后，无论如何都无法证明曾经发生过伪造历史的事。`,
+    ex_en: `The ultimate achievement of tyranny is the falsification of reality itself, making truth whatever the Party declares it to be.`,
+    ex_zh: `暴政的最终成就是对现实本身的伪造，使真理成为党所宣布的任何东西。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `unpersons`,
+    pron: `/ˈʌnpɜːrsnz/`,
+    def_en: `people who have been removed from official recognition, as if they never existed`,
+    def_zh: `非人；不存在的人`,
+    quote_en: `Withers, however, was already an unperson. He did not exist: he had never existed.`,
+    quote_zh: `维瑟斯已是一个非人。他并不存在：他从来没有存在过。`,
+    ex_en: `The most terrifying power of the state is its ability to create unpersons—to erase individuals from existence and memory.`,
+    ex_zh: `国家最可怕的力量是创造非人的能力——从存在和记忆中抹去个人。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `orthodoxy`,
+    pron: `/ˈɔːrθədɑːksi/`,
+    def_en: `authorized or generally accepted theory, doctrine, or practice`,
+    def_zh: `正统；正统观念`,
+    quote_en: `Zeal was not enough. Orthodoxy was unconsciousness.`,
+    quote_zh: `光有热情还不够。正统思想就是没有意识。`,
+    ex_en: `Under totalitarianism, orthodoxy becomes not a set of beliefs but a state of unthinking acceptance, a kind of waking sleep.`,
+    ex_zh: `在极权主义下，正统变成了一种信仰，而是一种不加思考的接受状态，一种清醒的睡眠。`,
+    chapter: `Part II, Chapter 5`,
+  },
+  {
+    word: `polysyllabic`,
+    pron: `/ˈpɑːlisɪlæbɪk/`,
+    def_en: `having many syllables`,
+    def_zh: `多音节的`,
+    quote_en: `All this in rapid polysyllabic speech which was a sort of parody of the habitual style of the orators of the Party.`,
+    quote_zh: `所有这一切的话都是用大字眼飞快地说的，可以说是对党的演说家一贯讲话作风的一种模仿。`,
+    ex_en: `The polysyllabic emptiness of political rhetoric masks the absence of meaning while creating the illusion of profound thought.`,
+    ex_zh: `政治修辞的多音节空洞掩盖了意义的缺失，同时制造了深刻思想的幻觉。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `claptrap`,
+    pron: `/ˈklæptræp/`,
+    def_en: `absurd or nonsensical talk`,
+    def_zh: `废话；胡说`,
+    quote_en: `Lest one should be in any doubt as to the reality which Goldstein's specious claptrap covered, behind his head on the telescreen there marched the endless columns of the Eurasian army.`,
+    quote_zh: `唯恐有人会对果尔德施坦因的花言巧语所涉及的现实有所怀疑，电幕上他的脑袋后面有无穷无尽的欧亚国军队列队经过。`,
+    ex_en: `Totalitarian propaganda is always claptrap backed by the implicit threat of violence for those who refuse to believe.`,
+    ex_zh: `极权主义宣传总是废话，背后隐含着对那些拒绝相信者的暴力威胁。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `compendium`,
+    pron: `/kəmˈpendiəm/`,
+    def_en: `a collection of concise but detailed information about a particular subject`,
+    def_zh: `概要；纲要`,
+    quote_en: `There were also whispered stories of a terrible book, a compendium of all the heresies, of which Goldstein was the author.`,
+    quote_zh: `谣传还有一本可怕的书，集异端邪说之大成，作者就是果尔德施坦因。`,
+    ex_en: `In dark times, forbidden books become compendiums of hope, preserving knowledge that power seeks to destroy.`,
+    ex_zh: `在黑暗时期，被禁的书籍成为希望的概要，保存着权力试图摧毁的知识。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `lucid`,
+    pron: `/ˈluːsɪd/`,
+    def_en: `expressed clearly; easy to understand`,
+    def_zh: `清晰的；明白的`,
+    quote_en: `In a lucid moment Winston found that he was shouting with the others and kicking his heel violently against the rung of his chair.`,
+    quote_zh: `温斯顿的头脑曾经有过片刻的清醒，他发现自己也同大家一起在喊叫，用鞋后跟使劲地踢着椅子腿。`,
+    ex_en: `In the lucid moments between propaganda and hysteria, one can glimpse the terrifying machinery of manufactured consent.`,
+    ex_zh: `在宣传和歇斯底里之间的清醒时刻，人们可以瞥见制造同意的可怕机器。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `ecstasy`,
+    pron: `/ˈekstəsi/`,
+    def_en: `an overwhelming feeling of great happiness or joyful excitement`,
+    def_zh: `狂喜；入迷`,
+    quote_en: `A hideous ecstasy of fear and vindictiveness, a desire to kill, to torture, to smash faces in with a sledge-hammer, seemed to flow through the whole group of people like an electric current.`,
+    quote_zh: `一种夹杂着恐惧和报复情绪的快意，一种要杀人、虐待、用大铁锤痛打别人脸孔的欲望，似乎像一股电流一般穿过了这一群人。`,
+    ex_en: `Totalitarianism offers its followers the ecstasy of belonging, of losing oneself in the collective rage against designated enemies.`,
+    ex_zh: `极权主义为其追随者提供归属的狂喜，在集体愤怒中迷失自我，对准指定的敌人。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `abstract`,
+    pron: `/ˈæbstrækt/`,
+    def_en: `existing in thought or as an idea but not having a physical existence`,
+    def_zh: `抽象的`,
+    quote_en: `And yet the rage that one felt was an abstract, undirected emotion which could be switched from one object to another like the flame of a blowlamp.`,
+    quote_zh: `然而，你所感到的那种狂热情绪是一种抽象的、无目的的感情，好像喷灯的火焰一般，可以从一个对象转到另一个对象。`,
+    ex_en: `Manufactured hatred must be kept abstract so that it can be redirected whenever the Party's alliances shift.`,
+    ex_zh: `制造出来的仇恨必须保持抽象，以便在党的联盟发生变化时可以随时重新定向。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `sinister`,
+    pron: `/ˈsɪnɪstər/`,
+    def_en: `giving the impression that something harmful or evil is happening`,
+    def_zh: `邪恶的；不祥的`,
+    quote_en: `Goldstein, in spite of his isolation, his helplessness, and the doubt that hung about his very existence, seemed like some sinister enchanter, capable by the mere power of his voice of wrecking the structure of civilization.`,
+    quote_zh: `果尔德施坦因尽管孤立无援，尽管对于是否有他这个人的存在也有怀疑，却似乎是一个阴险狡诈的妖物，光凭他的谈话声音也能够把文明的结构破坏无遗。`,
+    ex_en: `Every tyranny needs a sinister enemy figure, real or invented, to justify its own oppression and unite the people in fear.`,
+    ex_zh: `每个暴政都需要一个邪恶的敌人形象，无论是真实的还是捏造的，来证明自己的压迫，并在恐惧中团结人民。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `dissemble`,
+    pron: `/dɪˈsembl/`,
+    def_en: `to conceal one's true motives, feelings, or beliefs`,
+    def_zh: `掩饰；假装`,
+    quote_en: `To dissemble your feelings, to control your face, to do what everyone else was doing, was an instinctive reaction.`,
+    quote_zh: `掩饰你真实的感情，控制你脸部的表情，大家做什么你就做什么，这是一种本能的反应。`,
+    ex_en: `In oppressive societies, the ability to dissemble becomes a survival skill, and every face becomes a mask hiding the truth within.`,
+    ex_zh: `在压迫性社会中，掩饰的能力成为一种生存技能，每张脸都成为隐藏内心真相的面具。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `inconceivably`,
+    pron: `/ˌɪnkənˈsiːvəbli/`,
+    def_en: `in a way that is impossible to comprehend`,
+    def_zh: `不可思议地；难以想象地`,
+    quote_en: `It was an inconceivably stupid thing to have done.`,
+    quote_zh: `想不到怎么会这样蠢。`,
+    ex_en: `Under constant surveillance, even the most inconceivably small act of rebellion can have fatal consequences.`,
+    ex_zh: `在持续的监视下，即使是最难以想象的微小反抗行为也可能带来致命的后果。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `dreary`,
+    pron: `/ˈdrɪri/`,
+    def_en: `dull, bleak, and lifeless; depressing`,
+    def_zh: `沉闷的；枯燥的`,
+    quote_en: `'Oh, comrade,' she began in a dreary, whining sort of voice, 'I thought I heard you come in. Do you think you could come across and have a look at our kitchen sink?'`,
+    quote_zh: `'哦，同志，'她开始用一种疲倦的、带点呻吟的嗓音说，'我想我听到了你进门的声音。你能不能过来帮我看一看我家厨房里的水池子？'`,
+    ex_en: `Totalitarianism creates a dreary uniformity where even the tones of human voices are flattened into compliance.`,
+    ex_zh: `极权主义创造出沉闷的一致性，连人的声音语调也被压平为顺从。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `imbecile`,
+    pron: `/ˈɪmbəsl/`,
+    def_en: `stupid; idiotic`,
+    def_zh: `低能的；愚蠢的`,
+    quote_en: `He was a fattish but active man of paralysing stupidity, a mass of imbecile enthusiasms.`,
+    quote_zh: `他是个身体发胖、头脑愚蠢、但在各方面都很活跃的人，充满低能的热情。`,
+    ex_en: `The most useful citizens for a tyranny are those whose imbecile enthusiasms can be directed into unquestioning loyalty.`,
+    ex_zh: `对于暴政来说，最有用的公民是那些低能的热情可以被引导成为毫无疑问的忠诚的人。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `unorthodoxy`,
+    pron: `/ʌnˈɔːrθədɑːksi/`,
+    def_en: `the quality of being contrary to what is accepted or established`,
+    def_zh: `非正统；异端`,
+    quote_en: `Another year, two years, and they would be watching her night and day for symptoms of unorthodoxy.`,
+    quote_zh: `再过一两年，他们就要日日夜夜地监视着她，看她有没有思想不纯的迹象了。`,
+    ex_en: `In totalitarian states, the slightest hint of unorthodoxy is hunted down and eliminated before it can spread like a contagion.`,
+    ex_zh: `在极权主义国家，最微小的异端迹象都会被追查和消灭，以免像传染病一样传播开来。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `eavesdropping`,
+    pron: `/ˈiːvzdrɑːpɪŋ/`,
+    def_en: `secretly listening to the private conversation of others`,
+    def_zh: `偷听；窃听`,
+    quote_en: `hardly a week passed in which the Times did not carry a paragraph describing how some eavesdropping little sneak—'child hero' was the phrase generally used—had overheard some compromising remark and denounced its parents to the Thought Police.`,
+    quote_zh: `每星期《泰晤士报》总有一条消息报道有个偷听父母讲话的小密探——一般都称为'小英雄'——偷听到父母的一些见不得人的话，向思想警察作了揭发。`,
+    ex_en: `When children become eavesdropping informants, the family itself becomes an arm of the surveillance state.`,
+    ex_zh: `当孩子成为偷听的告密者时，家庭本身就成为了监控国家的一个分支。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `pitch-dark`,
+    pron: `/ˈpɪtʃ dɑːrk/`,
+    def_en: `completely dark`,
+    def_zh: `漆黑的`,
+    quote_en: `Years ago—how long was it? Seven years it must be—he had dreamed that he was walking through a pitch-dark room.`,
+    quote_zh: `几年以前——多少年了？大概有七年了——他曾经做过一个梦，梦见自己在一间漆黑的屋子中走过。`,
+    ex_en: `In the pitch-dark isolation of a police state, a single glance of understanding can feel like a lifeline thrown across an abyss.`,
+    ex_zh: `在警察国家漆黑的孤立中，一个理解的眼光就像跨越深渊扔过来的生命线。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `stagnant`,
+    pron: `/ˈstæɡnənt/`,
+    def_en: `not flowing or moving`,
+    def_zh: `停滞的；不流动的`,
+    quote_en: `A trumpet call, clear and beautiful, floated into the stagnant air.`,
+    quote_zh: `沉浊的空气中响了一声清脆动听的喇叭。`,
+    ex_en: `Under tyranny, the air itself feels stagnant, as if freedom of thought is a breeze that can no longer circulate.`,
+    ex_zh: `在暴政下，空气本身也感到停滞，仿佛思想自由是不能再流通的微风。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `annihilation`,
+    pron: `/əˌnaɪəˈleɪʃn/`,
+    def_en: `complete destruction or obliteration`,
+    def_zh: `彻底消灭；毁灭`,
+    quote_en: `And in front of him there lay not death but annihilation.`,
+    quote_zh: `而在他的面前等待着的不是死而是消灭。`,
+    ex_en: `Totalitarianism seeks not merely death but annihilation—the erasure of a person's existence from history and memory.`,
+    ex_zh: `极权主义寻求的不仅仅是死亡，而是消灭——将一个人的存在从历史和记忆中抹去。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `monstrous`,
+    pron: `/ˈmɑːnstrəs/`,
+    def_en: `having the ugly or frightening appearance of a monster`,
+    def_zh: `巨大的；可怕的`,
+    quote_en: `He felt as though he were wandering in the forests of the sea bottom, lost in a monstrous world where he himself was the monster.`,
+    quote_zh: `他觉得自己好像在海底森林中流浪一样，迷失在一个恶魔的世界中，而自己就是其中的一个恶魔。`,
+    ex_en: `Oppressive systems create monstrous worlds where the oppressed begin to see themselves as the problem rather than the system.`,
+    ex_zh: `压迫性制度创造出可怕的世界，在那里被压迫者开始把自己视为问题所在，而不是制度。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `dominion`,
+    pron: `/dəˈmɪniən/`,
+    def_en: `sovereignty or control`,
+    def_zh: `统治权；支配`,
+    quote_en: `What certainty had he that the dominion of the Party would not endure for ever?`,
+    quote_zh: `他有什么办法知道党的统治不会永远维持下去呢？`,
+    ex_en: `The ultimate aim of totalitarianism is permanent dominion, not just over bodies but over thoughts and memories themselves.`,
+    ex_zh: `极权主义的最终目标是永久的统治权，不仅是对身体，而且是对思想和记忆本身的统治。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `myriad`,
+    pron: `/ˈmɪriəd/`,
+    def_en: `a countless or extremely great number`,
+    def_zh: `无数的； myriad`,
+    quote_en: `The sun had shifted round, and the myriad windows of the Ministry of Truth, with the light no longer shining on them, looked grim as the loopholes of a fortress.`,
+    quote_zh: `太阳已经偏斜，真理部的无数窗口由于没有阳光照射，看上去像一个堡垒的枪眼一样阴森可怕。`,
+    ex_en: `Behind the myriad windows of power, unseen eyes watch and unseen hands rewrite reality to serve the state.`,
+    ex_zh: `在权力的无数窗户后面，看不见的眼睛在监视，看不见的手在改写现实以服务于国家。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `quailed`,
+    pron: `/kweɪld/`,
+    def_en: `felt or showed fear or apprehension`,
+    def_zh: `畏惧；退缩`,
+    quote_en: `His heart quailed before the enormous pyramidal shape.`,
+    quote_zh: `在这庞大的金字塔般的形状前面，他的心感到一阵畏缩。`,
+    ex_en: `Even the bravest heart quailed before the vast machinery of state power designed to crush all individuality.`,
+    ex_zh: `即使最勇敢的心在国家旨在粉碎一切个性的庞大权力机器面前也会畏惧。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `formulate`,
+    pron: `/ˈfɔːrmjuleɪt/`,
+    def_en: `to create or prepare something carefully, giving it a definite form`,
+    def_zh: `构想；系统地阐述`,
+    quote_en: `It seemed to him that it was only now, when he had begun to be able to formulate his thoughts, that he had taken the decisive step.`,
+    quote_zh: `他觉得只有到现在，当他开始能够把他的思想理出头绪的时候，他才采取了决定性的步骤。`,
+    ex_en: `The first act of rebellion is always internal: to formulate thoughts that power has declared unthinkable.`,
+    ex_zh: `反抗的第一步永远是内在的：构想出权力宣称为不可想象的思想。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `entail`,
+    pron: `/ɪnˈteɪl/`,
+    def_en: `to involve something as a necessary or inevitable part`,
+    def_zh: `需要；使必要`,
+    quote_en: `Thoughtcrime does not entail death: thoughtcrime IS death.`,
+    quote_zh: `思想罪不会带来死亡：思想罪本身就是死亡。`,
+    ex_en: `In totalitarian logic, deviant thoughts entail the same punishment as actions, because thinking is itself the ultimate crime.`,
+    ex_zh: `在极权主义逻辑中，偏离的思想与行为一样需要惩罚，因为思想本身就是终极罪行。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `statuesque`,
+    pron: `/ˌstætʃuˈesk/`,
+    def_en: `attractively tall and dignified`,
+    def_zh: `雕像般的；端庄的`,
+    quote_en: `She was a tall, statuesque, rather silent woman with slow movements and magnificent fair hair.`,
+    quote_zh: `她是个体格高大健美，但是沉默寡言的妇女，动作缓慢，一头浓密的金发。`,
+    ex_en: `In memory, loved ones become statuesque figures frozen in time, representing a humanity that oppression seeks to destroy.`,
+    ex_zh: `在记忆中，所爱之人成为时间凝固的雕像般的形象，代表着压迫试图摧毁的人性。`,
+    chapter: `Part II, Chapter 2`,
+  },
+  {
+    word: `subterranean`,
+    pron: `/ˌsʌbtəˈreɪniən/`,
+    def_en: `existing or occurring under the earth's surface`,
+    def_zh: `地下的`,
+    quote_en: `They were down in some subterranean place—the bottom of a well, for instance, or a very deep grave—but it was a place which, already far below him, was itself moving downwards.`,
+    quote_zh: `她们是在下面地下的一个地方——比如说在一个井底里，或者在一个很深很深的坟墓里——但是这个地方虽然在他下面很深的地方，却还在下沉。`,
+    ex_en: `The subterranean currents of resistance flow beneath the visible surface of society, hidden from the watchers above.`,
+    ex_zh: `抵抗的地下暗流在社会可见表面之下流动，避开上面的监视者。`,
+    chapter: `Part II, Chapter 2`,
+  },
+  {
+    word: `unalterable`,
+    pron: `/ʌnˈɔːltərəbl/`,
+    def_en: `not capable of being changed`,
+    def_zh: `不可改变的`,
+    quote_en: `she had sacrificed herself to a conception of loyalty that was private and unalterable.`,
+    quote_zh: `她为了一种内心的、不可改变的忠贞观念而牺牲了自己。`,
+    ex_en: `In a world where everything is subject to revision, the unalterable loyalty of the human heart becomes the last refuge of truth.`,
+    ex_zh: `在一个一切都可修改的世界里，人心不可改变的忠诚成为真理最后的避难所。`,
+    chapter: `Part II, Chapter 2`,
+  },
+  {
+    word: `annihilate`,
+    pron: `/əˈnaɪəleɪt/`,
+    def_en: `to destroy completely`,
+    def_zh: `彻底消灭；歼灭`,
+    quote_en: `With its grace and carelessness it seemed to annihilate a whole culture, a whole system of thought, as though Big Brother and the Party and the Thought Police could all be swept into nothingness by a single splendid movement of the arm.`,
+    quote_zh: `她用这种优雅的、毫不在乎的姿态，似乎把整个文化、整个思想制度都消灭掉了，好像老大哥、党、思想警察可以这么胳膊一挥就一扫而空似的。`,
+    ex_en: `There are moments when love itself seems powerful enough to annihilate the entire machinery of oppression with a single gesture.`,
+    ex_zh: `有些时刻，爱本身似乎强大到足以用一个姿态消灭整个压迫机器。`,
+    chapter: `Part II, Chapter 2`,
+  },
+  {
+    word: `prodigies`,
+    pron: `/ˈprɑːdədʒiz/`,
+    def_en: `remarkable feats or achievements`,
+    def_zh: `奇迹；壮举`,
+    quote_en: `The Spies performed prodigies of activity in clambering over the rooftops and cutting the streamers that fluttered from the chimneys.`,
+    quote_zh: `少年侦察队的表现特别精彩，他们爬上了屋顶，把挂在烟囱上的横幅剪断。`,
+    ex_en: `When children perform prodigies of loyalty, informing on their own parents, the very foundations of humanity are shaken.`,
+    ex_zh: `当孩子们表演忠诚的壮举，告发自己的父母时，人性的根基就被动摇了。`,
+    chapter: `Part II, Chapter 5`,
+  },
+  {
+    word: `apathy`,
+    pron: `/ˈæpəθi/`,
+    def_en: `lack of interest, enthusiasm, or concern`,
+    def_zh: `冷漠；漠不关心`,
+    quote_en: `The proles, normally apathetic about the war, were being lashed into one of their periodical frenzies of patriotism.`,
+    quote_zh: `无产者一般不关心战争，这时却被鼓动起来，迸发出他们一时的爱国热情。`,
+    ex_en: `Apathy is the enemy of revolution and the friend of tyranny, for those who do not care will never resist.`,
+    ex_zh: `冷漠是革命的敌人，是暴政的朋友，因为那些不关心的人永远不会反抗。`,
+    chapter: `Part II, Chapter 5`,
+  },
+  {
+    word: `spurious`,
+    pron: `/ˈspjʊriəs/`,
+    def_en: `not genuine, authentic, or true; false`,
+    def_zh: `假的；伪造的`,
+    quote_en: `It was part of the economy drive in preparation for Hate Week.`,
+    quote_zh: `这是为了筹备举行仇恨周而实行的节约。`,
+    ex_en: `The spurious news reports served only to distract the population from real problems.`,
+    ex_zh: `伪造的新闻报道只是为了分散民众对真正问题的注意力。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `infallible`,
+    pron: `/ɪnˈfæləbl/`,
+    def_en: `incapable of making mistakes or being wrong`,
+    def_zh: `一贯正确的；绝对可靠的`,
+    quote_en: `Big Brother is infallible and all-powerful.`,
+    quote_zh: `老大哥一贯正确，全才全能。`,
+    ex_en: `The claim that any leader is infallible is the first sign of tyranny, for only the powerless need to appear perfect.`,
+    ex_zh: `声称任何领导人一贯正确是暴政的第一个迹象，因为只有无权者才需要显得完美。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `pyramidal`,
+    pron: `/pɪˈræmɪdl/`,
+    def_en: `shaped like a pyramid`,
+    def_zh: `金字塔形的`,
+    quote_en: `It was an enormous pyramidal structure of glittering white concrete, soaring up, terrace after terrace, 300 metres into the air.`,
+    quote_zh: `这是一个庞大的金字塔式的建筑，白色的水泥晶晶发亮，一层接着一层上升，一直升到高空三百米。`,
+    ex_en: `All totalitarian societies have a pyramidal structure, with power flowing upward and obedience flowing down.`,
+    ex_zh: `所有极权主义社会都有金字塔形的结构，权力向上流动，服从向下流动。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `oligarchical`,
+    pron: `/ˌɑːlɪˈɡɑːrkɪkl/`,
+    def_en: `relating to a small group of people having control of a country`,
+    def_zh: `寡头政治的`,
+    quote_en: `The theory and practice of oligarchical collectivism.`,
+    quote_zh: `寡头政治集体主义的理论与实践。`,
+    ex_en: `Beneath the rhetoric of equality, every society reveals its oligarchical structure, with power concentrated in fewer and fewer hands.`,
+    ex_zh: `在平等的言辞之下，每个社会都揭示出其寡头政治的结构，权力集中在越来越少的人手中。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `gyroscope`,
+    pron: `/ˈdʒaɪrəskoʊp/`,
+    def_en: `a device used to maintain orientation, consisting of a spinning wheel or disk`,
+    def_zh: `陀螺仪`,
+    quote_en: `Even after enormous upheavals and seemingly irrevocable changes, the same pattern has always reasserted itself, just as a gyroscope will always return to equilibrium, however far it is pushed one way or the other.`,
+    quote_zh: `即使在发生了大动荡和似乎无法挽回的变化以后，总又恢复原来的格局，好像陀螺仪总会恢复平衡一样，不管你把它朝哪个方向推着转。`,
+    ex_en: `Like a gyroscope, human society tends to return to hierarchical patterns no matter how hard revolutions try to change it.`,
+    ex_zh: `像陀螺仪一样，无论革命如何努力改变，人类社会总是倾向于回归等级模式。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `irreconcilable`,
+    pron: `/ɪˌrekənˈsaɪləbl/`,
+    def_en: `impossible to bring into agreement`,
+    def_zh: `不可调和的`,
+    quote_en: `The aims of these groups are entirely irreconcilable.`,
+    quote_zh: `这三种人的目标是完全不可调和的。`,
+    ex_en: `The interests of the rulers and the ruled are fundamentally irreconcilable, a truth that power seeks to obscure.`,
+    ex_zh: `统治者和被统治者的利益从根本上说是不可调和的，这是权力试图掩盖的真相。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `oligarchy`,
+    pron: `/ˈɑːləɡɑːrki/`,
+    def_en: `a small group of people having control of a country`,
+    def_zh: `寡头统治集团`,
+    quote_en: `It had long been realized that the only secure basis for oligarchy is collectivism.`,
+    quote_zh: `他们早已认识到，寡头政体的唯一可靠基础是集体主义。`,
+    ex_en: `Every revolution promises democracy, but every revolution eventually produces a new oligarchy in place of the old.`,
+    ex_zh: `每次革命都承诺民主，但每次革命最终都会产生新的寡头取代旧的。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `collectivism`,
+    pron: `/kəˈlektɪvɪzəm/`,
+    def_en: `the practice or principle of giving a group priority over each individual`,
+    def_zh: `集体主义`,
+    quote_en: `It had long been realized that the only secure basis for oligarchy is collectivism.`,
+    quote_zh: `他们早已认识到，寡头政体的唯一可靠基础是集体主义。`,
+    ex_en: `Collectivism, when pushed to extremes, becomes the tool by which the individual is crushed in the name of the group.`,
+    ex_zh: `集体主义当被推向极端时，就成为以集体的名义粉碎个人的工具。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `expropriated`,
+    pron: `/eksˈproʊprieɪtɪd/`,
+    def_en: `taken away from its owner, especially by public authority`,
+    def_zh: `被没收的；被征用的`,
+    quote_en: `It had always been assumed that if the capitalist class were expropriated, Socialism must follow: and unquestionably the capitalists had been expropriated.`,
+    quote_zh: `一般都认为，在没收了资产阶级之后，必然就跟着实行社会主义。资产阶级毫无疑义地确实遭到了没收。`,
+    ex_en: `When private property is expropriated in the name of the people, it is merely transferred from many individuals to a new ruling class.`,
+    ex_zh: `当私有财产以人民的名义被没收时，它只是从许多个人手中转移到了新的统治阶级手中。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `perpetuate`,
+    pron: `/pərˈpetʃueɪt/`,
+    def_en: `to make something continue indefinitely`,
+    def_zh: `使永久化；使持续`,
+    quote_en: `The Party is not concerned with perpetuating its blood but with perpetuating itself.`,
+    quote_zh: `党关心的不是延续自己的血统，而是使自己永久化。`,
+    ex_en: `The ruling class perpetuates itself not through heredity but through ideology, ensuring that each new generation believes the necessary lies.`,
+    ex_zh: `统治阶级不是通过遗传，而是通过意识形态使自己永久化，确保每一代新人都相信必要的谎言。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `crimestop`,
+    pron: `/ˈkraɪmstɑːp/`,
+    def_en: `the faculty of stopping short at the threshold of any dangerous thought`,
+    def_zh: `思想停止能力`,
+    quote_en: `The first and simplest stage in the discipline, which can be taught even to young children, is called, in Newspeak, crimestop.`,
+    quote_zh: `这种训练的第一阶段，也是最简单的阶段，在新话中叫做'思想停止'，甚至可以教给幼儿。`,
+    ex_en: `Crimestop is the mental reflex that prevents a thought from even forming, the most effective form of censorship.`,
+    ex_zh: `思想停止是阻止思想甚至形成的心理反射，是最有效的审查形式。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `duckspeak`,
+    pron: `/ˈdʌkspiːk/`,
+    def_en: `to quack like a duck; speaking without thought`,
+    def_zh: `鸭话；机械地说话`,
+    quote_en: `There is a word in Newspeak: duckspeak, to quack like a duck. It is one of those interesting words that have two contradictory meanings.`,
+    quote_zh: `新话中有一个词儿，叫鸭话，就是像鸭子那样呱呱叫。这种词儿很有意思，它有两个相反的含义。`,
+    ex_en: `Duckspeak is the ideal of totalitarian communication: words uttered without the slightest glimmer of independent thought.`,
+    ex_zh: `鸭话是极权主义交流的理想：说出的话没有一丝独立思考的光芒。`,
+    chapter: `Part II, Chapter 5`,
+  },
+  {
+    word: `doubleplusungood`,
+    pron: `/ˈdʌbəlplʌsʌnˈɡʊd/`,
+    def_en: `extremely bad; a Newspeak intensification of 'ungood'`,
+    def_zh: `双加不好；极坏的`,
+    quote_en: `times 3.12.83 reporting bb dayorder doubleplusungood refs unpersons rewrite fullwise upsub antileaf`,
+    quote_zh: `泰唔士报3.12.83 报道老大命令双加不好提到非人全部重写存档前上交`,
+    ex_en: `In Newspeak, language is reduced to moral judgments: everything is either good, ungood, or doubleplusungood.`,
+    ex_zh: `在新话中，语言被简化为道德判断：一切事物要么是好，要么是不好，要么是双加不好。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `unperson`,
+    pron: `/ˈʌnpɜːrsn/`,
+    def_en: `a person whose existence is officially denied`,
+    def_zh: `非人`,
+    quote_en: `Withers, however, was already an unperson. He did not exist: he had never existed.`,
+    quote_zh: `维瑟斯已是一个非人。他并不存在：他从来没有存在过。`,
+    ex_en: `The unperson is the ultimate achievement of totalitarianism: the complete erasure of an individual from history and memory.`,
+    ex_zh: `非人是极权主义的终极成就：将一个人从历史和记忆中完全抹去。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `thoughtcrime`,
+    pron: `/ˈθɔːtkraɪm/`,
+    def_en: `the crime of holding unorthodox thoughts`,
+    def_zh: `思想罪`,
+    quote_en: `Thoughtcrime does not entail death: thoughtcrime IS death.`,
+    quote_zh: `思想罪不会带来死亡：思想罪本身就是死亡。`,
+    ex_en: `In a totalitarian state, thoughtcrime is the only crime, and everyone is guilty of it whether they know it or not.`,
+    ex_zh: `在极权主义国家，思想罪是唯一的罪行，每个人都是有罪的，无论他们是否知道。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `facecrime`,
+    pron: `/ˈfeɪskraɪm/`,
+    def_en: `the crime of wearing an improper expression on one's face`,
+    def_zh: `脸罪`,
+    quote_en: `There was even a word for it in Newspeak: facecrime, it was called.`,
+    quote_zh: `新话里甚至有一个专门的词，叫做脸罪。`,
+    ex_en: `Facecrime is the most insidious offense: a fleeting expression that reveals the inner self can be punished like any overt act.`,
+    ex_zh: `脸罪是最阴险的罪行：一个揭示内在自我的短暂表情可以像任何公开行为一样受到惩罚。`,
+    chapter: `Part II, Chapter 2`,
+  },
+  {
+    word: `ownlife`,
+    pron: `/ˈoʊnlaɪf/`,
+    def_en: `individualism; eccentricity; living alone`,
+    def_zh: `孤生；个人主义`,
+    quote_en: `There was a word for it in Newspeak: ownlife, it was called, meaning individualism and eccentricity.`,
+    quote_zh: `新话中对此有个专门的词，叫孤生，这意味着个人主义和性格孤僻。`,
+    ex_en: `The crime of ownlife is the refusal to dissolve oneself into the collective, the assertion that one exists apart from the Party.`,
+    ex_zh: `孤生之罪是拒绝将自己消解于集体之中，断言自己存在于党之外。`,
+    chapter: `Part I, Chapter 8`,
+  },
+  {
+    word: `prolefeed`,
+    pron: `/ˈproʊlfiːd/`,
+    def_en: `the rubbishy entertainment and spurious news provided to the masses`,
+    def_zh: `无产者饲料；大众娱乐`,
+    quote_en: `An example was prolefeed, meaning the rubbishy entertainment and spurious news which the Party handed out to the masses.`,
+    quote_zh: `一个例子是无产者饲料，意思是党发给群众的垃圾娱乐和假新闻。`,
+    ex_en: `Prolefeed keeps the masses distracted and content, filling their minds with trivia while the Party consolidates its power.`,
+    ex_zh: `无产者饲料使群众分心和满足，用琐事填满他们的头脑，而党则巩固其权力。`,
+    chapter: `Appendix`,
+  },
+  {
+    word: `joycamp`,
+    pron: `/ˈdʒɔɪkæmp/`,
+    def_en: `a forced-labour camp`,
+    def_zh: `欢乐营；劳动营`,
+    quote_en: `Such words, for instance, as joycamp (forced-labour camp) meant almost the exact opposite of what they appeared to mean.`,
+    quote_zh: `例如，像'欢乐营'（劳动营）这样的词，意思几乎与它们表面意思完全相反。`,
+    ex_en: `The name 'joycamp' exemplifies Newspeak's purpose: to make horror sound pleasant and oppression sound like freedom. "`,
+    ex_zh: `欢乐营"这个名字体现了新话的目的：让恐怖听起来愉快，让压迫听起来像自由。`,
+    chapter: `Appendix`,
+  },
+  {
+    word: `minitrue`,
+    pron: `/ˈmɪnitruː/`,
+    def_en: `the Ministry of Truth, responsible for propaganda and historical revision`,
+    def_zh: `真部；真理部`,
+    quote_en: `The Ministry of Truth—Minitrue, in Newspeak—was startlingly different from any other object in sight.`,
+    quote_zh: `真理部——用新话来说叫真部——同视野里的任何其他东西都有令人吃惊的不同。`,
+    ex_en: `Minitrue's function is not to discover truth but to manufacture it, rewriting reality to match Party doctrine.`,
+    ex_zh: `真部的职能不是发现真理，而是制造真理，重写现实以符合党的教义。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `minipax`,
+    pron: `/ˈmɪnipæks/`,
+    def_en: `the Ministry of Peace, responsible for war`,
+    def_zh: `和部；和平部`,
+    quote_en: `Their names, in Newspeak: Minitrue, Minipax, Miniluv, and Miniplenty.`,
+    quote_zh: `用新话来说，它们分别称为真部、和部、爱部、富部。`,
+    ex_en: `Minipax conducts war while calling it peace, understanding that perpetual conflict is the best way to maintain power.`,
+    ex_zh: `和部进行战争却称之为和平，理解到永久冲突是维持权力的最佳方式。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `miniluv`,
+    pron: `/ˈmɪnilʌv/`,
+    def_en: `the Ministry of Love, responsible for law, order, and torture`,
+    def_zh: `爱部；友爱部`,
+    quote_en: `The Ministry of Love was the really frightening one. There were no windows in it at all.`,
+    quote_zh: `真正教人害怕的部是友爱部。它连一扇窗户也没有。`,
+    ex_en: `Miniluv practices love by extracting confessions through torture, loving the sinner enough to save him from wrong thought.`,
+    ex_zh: `爱部通过酷刑逼供来实践爱，爱罪人到足以把他从错误思想中拯救出来。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `miniplenty`,
+    pron: `/ˈmɪnɪplenti/`,
+    def_en: `the Ministry of Plenty, responsible for economic affairs`,
+    def_zh: `富部；富裕部`,
+    quote_en: `The Ministry of Plenty, which was responsible for economic affairs.`,
+    quote_zh: `富裕部负责经济事务。`,
+    ex_en: `Miniplenty creates artificial scarcity while announcing record production, keeping the population dependent on state allocations.`,
+    ex_zh: `富部制造人为短缺，同时宣布创纪录的产量，使人口依赖于国家分配。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `doublethink`,
+    pron: `/ˈdʌbəlθɪŋk/`,
+    def_en: `the acceptance of two contradictory beliefs at the same time`,
+    def_zh: `双重思想`,
+    quote_en: `To know and not to know, to be conscious of complete truthfulness while telling carefully constructed lies, to hold simultaneously two opinions which cancelled out, knowing them to be contradictory and believing in both of them.`,
+    quote_zh: `知与不知，知道全部真实情况而却扯一些滴水不漏的谎话，同时持两种互相抵消的观点，明知它们互相矛盾而仍都相信。`,
+    ex_en: `Doublethink is the ultimate achievement of totalitarianism: the ability to hold two contradictory beliefs and believe both with complete sincerity.`,
+    ex_zh: `双重思想是极权主义的终极成就：同时持两种矛盾信念，并且完全真诚地相信两者的能力。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `blackwhite`,
+    pron: `/ˈblækwaɪt/`,
+    def_en: `the ability to believe that black is white, and to forget that one has ever believed the contrary`,
+    def_zh: `黑白颠倒`,
+    quote_en: `The keyword here is blackwhite. Like so many Newspeak words, this word has two mutually contradictory meanings.`,
+    quote_zh: `这里的关键词是黑白。像许多新话词一样，这个词有两个相互矛盾的含义。`,
+    ex_en: `Blackwhite is the mental gymnastic that allows a person to accept flat contradictions without experiencing cognitive dissonance.`,
+    ex_zh: `黑白是允许一个人接受明显矛盾而不经历认知失调的心理体操。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `inherently`,
+    pron: `/ɪnˈhɪrəntli/`,
+    def_en: `in a permanent, essential, or characteristic way`,
+    def_zh: `内在地；固有地`,
+    quote_en: `It was a lean Jewish face, with a great fuzzy aureole of white hair and a small goatee beard—a clever face, and yet somehow inherently despicable.`,
+    quote_zh: `这是一张瘦削的犹太人的脸，一头蓬松的白发，小小的一撮山羊胡须——一张聪明人的脸庞，但是有些天生的可鄙。`,
+    ex_en: `The genius of totalitarian propaganda is to make certain groups seem inherently despicable, justifying any treatment of them.`,
+    ex_zh: `极权主义宣传的天才之处在于使某些群体似乎天生可鄙，从而证明任何对待他们的方式都是合理的。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `futile`,
+    pron: `/ˈfjuːtl/`,
+    def_en: `incapable of producing any useful result; pointless`,
+    def_zh: `无效的；无用的`,
+    quote_en: `He sat as still as a mouse, in the futile hope that whoever it was might go away after a single attempt.`,
+    quote_zh: `他像只耗子似的坐着不动，满心希望不论是谁敲门，敲了一下就会走开。`,
+    ex_en: `The futile hope of those under oppression is that if they remain still enough, the knock will not come for them.`,
+    ex_zh: `被压迫者的无用希望是，如果他们保持足够的静止，敲门声就不会为他们而来。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `evanescent`,
+    pron: `/ˌevəˈnesnt/`,
+    def_en: `soon passing out of sight, memory, or existence`,
+    def_zh: `短暂的；易逝的`,
+    quote_en: `He could not remember whether it was before or after having the dream that he had seen O'Brien for the first time.`,
+    quote_zh: `他现在已经记不得他第一次见到奥勃良是在做梦之前还是做梦之后。`,
+    ex_en: `In a world where history is constantly rewritten, even personal memories become evanescent, dissolving like morning mist.`,
+    ex_zh: `在一个历史不断重写的世界里，即使是个人记忆也变得短暂，像晨雾一样消散。`,
+    chapter: `Part I, Chapter 3`,
+  },
+  {
+    word: `ignominy`,
+    pron: `/ˈɪɡnəmɪni/`,
+    def_en: `public shame or disgrace`,
+    def_zh: `耻辱；不名誉`,
+    quote_en: `They would have blown a hole in their own perfection. To die hating them, that was freedom.`,
+    quote_zh: `他们将在自己的完美上炸开一个洞。怀着对他们的仇恨而死，那就是自由。`,
+    ex_en: `The ignominy of a public confession is not in admitting guilt but in surrendering the last shred of inner freedom.`,
+    ex_zh: `公开忏悔的耻辱不在于承认罪行，而在于交出最后一点内在自由。`,
+    chapter: `Part III, Chapter 4`,
+  },
+  {
+    word: `categorical`,
+    pron: `/ˌkætəˈɡɔːrɪkl/`,
+    def_en: `unambiguously explicit and direct`,
+    def_zh: `绝对的；明确的`,
+    quote_en: `The Ministry of Plenty had issued a promise (a 'categorical pledge' were the official words) that there would be no reduction of the chocolate ration during 1984.`,
+    quote_zh: `富裕部许下诺言（官方的话是'明确保证'），在一九八四年内不再降低巧克力的定量供应。`,
+    ex_en: `The categorical promises of totalitarian states are always broken, but by then they have been erased from official memory.`,
+    ex_zh: `极权主义国家的绝对承诺总是被打破，但到那时它们已从官方记忆中抹去。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `rectify`,
+    pron: `/ˈrektɪfaɪ/`,
+    def_en: `to put right; correct`,
+    def_zh: `纠正；改正`,
+    quote_en: `It was therefore necessary to rewrite a paragraph of Big Brother's speech, in such a way as to make him predict the thing that had actually happened.`,
+    quote_zh: `因此有必要改写老大哥讲话中的一段话，使他的预言符合实际情况。`,
+    ex_en: `The Party could rectify any inconvenient fact, rewriting reality itself to ensure its own infallibility.`,
+    ex_zh: `党可以纠正任何不便的事实，重写现实本身，以确保自己的一贯正确。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `scepticism`,
+    pron: `/ˈskeptɪsɪzəm/`,
+    def_en: `a skeptical attitude; doubt as to the truth of something`,
+    def_zh: `怀疑主义；怀疑态度`,
+    quote_en: `From the point of view of our present rulers, therefore, the only genuine dangers are the splitting-off of a new group of able, under-employed, power-hungry people, and the growth of liberalism and scepticism in their own ranks.`,
+    quote_zh: `因此，从我们目前的统治者的观点来看，唯一真正的危险是分裂出一批新的能干、失业、渴望权力的人，以及在他们自己的队伍中自由主义和怀疑态度的增长。`,
+    ex_en: `Scepticism is the enemy of totalitarianism, for the sceptic cannot be made to believe the necessary lies.`,
+    ex_zh: `怀疑主义是极权主义的敌人，因为怀疑者不能被驱使相信必要的谎言。`,
+    chapter: `Part II, Chapter 9`,
+  },
+  {
+    word: `multifarious`,
+    pron: `/ˌmʌltɪˈferiəs/`,
+    def_en: `having many varied parts or aspects`,
+    def_zh: `多种多样的；五花八门的`,
+    quote_en: `And the Ministry had not only to supply the multifarious needs of the party, but also to repeat the whole operation at a lower level for the benefit of the proletariat.`,
+    quote_zh: `真理部不仅要满足党的五花八门的需要，而且也要全部另搞一套低级的东西供无产阶级享用。`,
+    ex_en: `Totalitarianism extends its reach into every multifarious aspect of human life, leaving no corner untouched.`,
+    ex_zh: `极权主义将其触角延伸到人类生活的每一个五花八门的方面，不留下任何角落。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `proletariat`,
+    pron: `/ˌproʊləˈteriət/`,
+    def_en: `workers or working-class people`,
+    def_zh: `无产阶级`,
+    quote_en: `There was a whole chain of separate departments dealing with proletarian literature, music, drama, and entertainment generally.`,
+    quote_zh: `有一整套不同的部门，负责无产阶级文学、戏剧、音乐和一般的娱乐。`,
+    ex_en: `The proletariat is kept content with cheap entertainment and simple pleasures while the real decisions are made elsewhere.`,
+    ex_zh: `无产阶级被廉价的娱乐和简单的快乐所满足，而真正的决定在别处做出。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `versificator`,
+    pron: `/ˈvɜːrsɪfɪkeɪtər/`,
+    def_en: `a machine that composes verse mechanically`,
+    def_zh: `作诗机`,
+    quote_en: `Here were produced rubbishy newspapers containing almost nothing except sport, crime and astrology, sensational five-cent novelettes, films oozing with sex, and sentimental songs which were composed entirely by mechanical means on a special kind of kaleidoscope known as a versificator.`,
+    quote_zh: `出版除了体育运动、凶杀犯罪、天文星象以外没有任何其他内容的无聊报纸，廉价的刺激小说，色情电影，靡靡之音，后者这种歌曲完全是用一种叫做谱曲器的特殊机器用机械的方法谱写出来的。`,
+    ex_en: `The versificator represents the ultimate triumph of mechanism over creativity, producing art without artists.`,
+    ex_zh: `作诗机代表了机械对创造力的终极胜利，生产没有艺术家的艺术。`,
+    chapter: `Part I, Chapter 4`,
+  },
+  {
+    word: `depict`,
+    pron: `/dɪˈpɪkt/`,
+    def_en: `to show or represent by drawing, painting, or other art form`,
+    def_zh: `描绘；描画`,
+    quote_en: `It depicted simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features.`,
+    quote_zh: `画的是一张很大的面孔，有一米多宽：这是一个大约四十五岁的男人的脸，留着浓密的黑胡子，面部线条粗犷英俊。`,
+    ex_en: `The posters depicted the leader as a benevolent father figure, watching over his children.`,
+    ex_zh: `海报把领导人描绘成一个慈爱的父亲形象，看护着他的孩子们。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `sanguine`,
+    pron: `/ˈsæŋɡwɪn/`,
+    def_en: `cheerfully optimistic; also: having a healthy red complexion`,
+    def_zh: `乐观的；红润的`,
+    quote_en: `His hair was very fair, his face naturally sanguine, his skin roughened by coarse soap and blunt razor blades and the cold of the winter that had just ended.`,
+    quote_zh: `他的头发很淡，脸色天生红润，他的皮肤由于用粗肥皂和钝刀片，再加上刚刚过去的寒冬，显得有点粗糙。`,
+    ex_en: `Despite the grim conditions, his sanguine temperament never completely deserted him.`,
+    ex_zh: `尽管条件严峻，他乐观的气质从未完全离开他。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `plastered`,
+    pron: `/ˈplæstərd/`,
+    def_en: `covered or coated with plaster; also: covered completely`,
+    def_zh: `贴满；覆盖`,
+    quote_en: `except the posters that were plastered everywhere.`,
+    quote_zh: `除了到处贴着的招贴画以外。`,
+    ex_en: `The walls were plastered with propaganda posters, leaving no space for independent thought.`,
+    ex_zh: `墙上贴满了宣传海报，没有留下任何独立思考的空间。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `fitfully`,
+    pron: `/ˈfɪtfəli/`,
+    def_en: `in irregular spells; intermittently`,
+    def_zh: `断断续续地；间歇地`,
+    quote_en: `Down at street level another poster, torn at one corner, flapped fitfully in the wind, alternately covering and uncovering the single word INGSOC.`,
+    quote_zh: `在下面街上有另外一张招贴画，一角给撕破了，在风中不时地吹拍着，一会儿盖上，一会儿又露出唯一的一个词儿'英社'。`,
+    ex_en: `The truth emerges fitfully in totalitarian states, glimpsed for moments before being covered again by lies.`,
+    ex_zh: `在极权主义国家，真理断断续续地出现，在被谎言再次覆盖之前只能瞥见片刻。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `snooping`,
+    pron: `/ˈsnuːpɪŋ/`,
+    def_en: `spying or prying into the affairs of others`,
+    def_zh: `窥探；侦察`,
+    quote_en: `It was the police patrol, snooping into people's windows.`,
+    quote_zh: `这是警察巡逻队，在伺察人们的窗户。`,
+    ex_en: `The telescreen was always snooping, watching every move, listening to every whisper.`,
+    ex_zh: `电幕总是在窥探，监视每一个动作，倾听每一个低语。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `varicose`,
+    pron: `/ˈværɪkoʊs/`,
+    def_en: `swollen and twisted, usually referring to veins`,
+    def_zh: `静脉曲张的`,
+    quote_en: `Winston was thirty-nine and had a varicose ulcer above his right ankle.`,
+    quote_zh: `他三十九岁，右脚脖子上患静脉曲张。`,
+    ex_en: `The body, with its varicose veins and aching joints, becomes a record of suffering that even the Party cannot rewrite.`,
+    ex_zh: `身体，带着它的静脉曲张和疼痛的关节，成为党也无法改写的苦难记录。`,
+    chapter: `Part I, Chapter 1`,
+  },
+  {
+    word: `frowsy`,
+    pron: `/ˈfraʊzi/`,
+    def_en: `dirty and untidy in appearance`,
+    def_zh: `邋遢的；不整洁的`,
+    quote_en: `He had seen it lying in the window of a frowsy little junk-shop in a slummy quarter of the town.`,
+    quote_zh: `他是在本市一个破破烂烂的居民区的一家发霉的小旧货铺中看到它躺在橱窗中的。`,
+    ex_en: `The frowsy shop contained remnants of a past that the Party had tried to erase.`,
+    ex_zh: `那个邋遢的店铺里存留着党试图抹去的过去的残余。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `furtively`,
+    pron: `/ˈfɜːrtɪvli/`,
+    def_en: `in a way that attempts to avoid notice or attention; secretly`,
+    def_zh: `偷偷摸摸地；秘密地`,
+    quote_en: `He had procured one, furtively and with some difficulty, simply because of a feeling that the beautiful creamy paper deserved to be written on with a real nib.`,
+    quote_zh: `他偷偷地花了不少力气才买到一支，只是因为他觉得这个精美乳白的本子只配用真正的笔尖书写。`,
+    ex_en: `In surveillance states, even purchasing a notebook must be done furtively, as if it were a crime.`,
+    ex_zh: `在监控国家，即使买一个笔记本也必须偷偷摸摸地进行，仿佛这是一种罪行。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `archaic`,
+    pron: `/ɑːrˈkeɪɪk/`,
+    def_en: `very old or old-fashioned`,
+    def_zh: `古老的；过时的`,
+    quote_en: `The pen was an archaic instrument, seldom used even for signatures, and he had procured one, furtively and with some difficulty.`,
+    quote_zh: `这种沾水笔已成了老古董，甚至签名时也不用了，他偷偷地花了不少力气才买到一支。`,
+    ex_en: `In a world of electronic surveillance, handwriting has become an archaic act of resistance.`,
+    ex_zh: `在电子监控的世界里，手写已经成为一种古老的反抗行为。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `decisive`,
+    pron: `/dɪˈsaɪsɪv/`,
+    def_en: `settling an issue; producing a definite result`,
+    def_zh: `决定性的；果断的`,
+    quote_en: `To mark the paper was the decisive act.`,
+    quote_zh: `在纸上写标题是个决定性的行动。`,
+    ex_en: `The decisive moment in any rebellion is the first step from thought to action, however small.`,
+    ex_zh: `任何反抗中的决定性时刻都是从思想到行动的第一步，无论多么微小。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `helplessness`,
+    pron: `/ˈhelpləsnəs/`,
+    def_en: `inability to defend oneself or act effectively`,
+    def_zh: `无助；无能为力`,
+    quote_en: `A sense of complete helplessness had descended upon him.`,
+    quote_zh: `一阵束手无策的感觉袭击了他。`,
+    ex_en: `The helplessness of the individual before the massive power of the state is the intended effect of totalitarianism.`,
+    ex_zh: `个人在国家巨大权力面前的无助是极权主义的预期效果。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `strident`,
+    pron: `/ˈstraɪdnt/`,
+    def_en: `loud and harsh`,
+    def_zh: `刺耳的；尖锐的`,
+    quote_en: `The telescreen had changed over to strident military music.`,
+    quote_zh: `电幕上现在播放刺耳的军乐了。`,
+    ex_en: `The strident propaganda drowned out all dissent, leaving only the official voice.`,
+    ex_zh: `刺耳的宣传淹没了所有异议，只剩下官方的声音。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `booziness`,
+    pron: `/ˈbuːzinəs/`,
+    def_en: `the state of being slightly drunk`,
+    def_zh: `醉意；微醉`,
+    quote_en: `and a slight booziness caused by the gin.`,
+    quote_zh: `杜松子酒引起的一阵醉意。`,
+    ex_en: `In moments of booziness, the careful mask of conformity sometimes slipped, revealing the human beneath.`,
+    ex_zh: `在醉意的时刻，顺从的谨慎面具有时会滑落，露出下面的人性。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `sheer`,
+    pron: `/ʃɪr/`,
+    def_en: `complete and without restriction; pure`,
+    def_zh: `纯粹的；完全的`,
+    quote_en: `Suddenly he began writing in sheer panic, only imperfectly aware of what he was setting down.`,
+    quote_zh: `突然他开始慌里慌张地写了起来，只是模模糊糊地意识到他写的是些什么。`,
+    ex_en: `The sheer terror of discovery can paralyze even the most courageous.`,
+    ex_zh: `被发现的纯粹恐惧甚至可以使最勇敢的人瘫痪。`,
+    chapter: `Part I, Chapter 2`,
+  },
+  {
+    word: `nebulous`,
+    pron: `/ˈnebjələs/`,
+    def_en: `in the form of a cloud or haze; vague or ill-defined`,
+    def_zh: `模糊的；朦胧的`,
+    quote_en: `It had happened that morning at the Ministry, if anything so nebulous could be said to happen.`,
+    quote_zh: `如果说，这样一件模模糊糊的事也可以说是发生的话，这件事今天早上发生在部里。`,
+    ex_en: `The nebulous beginnings of resistance—a glance, a hesitation, a thought—are the most dangerous to tyranny.`,
+    ex_zh: `反抗的模糊开端——一瞥、犹豫、一个想法——对暴政是最危险的。`,
+    chapter: `Part I, Chapter 2`,
+  },
+];
+
+// Safe localStorage wrapper (Safari blocks it for file:// URLs)
+const LS = {
+  get(key, fallback) {
+    try { const v = localStorage.getItem(key); return v !== null ? v : fallback; }
+    catch(e) { return fallback; }
+  },
+  set(key, val) {
+    try { localStorage.setItem(key, val); } catch(e) {}
+  }
+};
+
+// ============================================================
+// GROUPS: split 102 words into 10 groups
+// ============================================================
+function buildGroups() {
+  const n = VOCAB.length, g = 10;
+  const base = Math.floor(n / g);
+  const extra = n % g; // first `extra` groups get base+1
+  const groups = [];
+  let i = 0;
+  for (let k = 0; k < g; k++) {
+    const len = k < extra ? base + 1 : base;
+    groups.push(VOCAB.slice(i, i + len));
+    i += len;
+  }
+  return groups;
+}
+const GROUPS = buildGroups();
+const NUM_GROUPS = GROUPS.length;
+
+// ============================================================
+// STATE
+// ============================================================
+const S = {
+  gIdx: 0,
+  wIdx: 0,
+  sentTab: 0,
+  starred: new Set(JSON.parse(LS.get('wtb_starred', '[]'))),
+  sentences: JSON.parse(LS.get('wtb_sentences', '{}')),
+  quiz: null,
+  quizDone: {},
+  sqQuiz: null,
+};
+
+function saveStarred() {
+  LS.set('wtb_starred', JSON.stringify([...S.starred]));
+}
+function saveSentences() {
+  LS.set('wtb_sentences', JSON.stringify(S.sentences));
+}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function escReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function highlightWord(text, word) {
+  const e = escReg(word);
+  const re1 = new RegExp('\\b(' + e + ')\\b', 'gi');
+  if (re1.test(text)) return text.replace(re1, '<span class="hl">$1</span>');
+  const root = escReg(word.substring(0, Math.max(4, Math.floor(word.length * 0.72))));
+  const re2 = new RegExp('\\b(' + root + '\\w*)\\b', 'gi');
+  return text.replace(re2, '<span class="hl">$1</span>');
+}
+
+function blankWord(text, word) {
+  const blank = '<span class="blank">___________</span>';
+  const e = escReg(word);
+  const re1 = new RegExp('\\b' + e + '\\b', 'gi');
+  if (re1.test(text)) return text.replace(re1, blank);
+  const root = escReg(word.substring(0, Math.max(4, Math.floor(word.length * 0.72))));
+  const re2 = new RegExp('\\b' + root + '\\w*\\b', 'gi');
+  return text.replace(re2, blank);
+}
+
+function chapterShort(ch) {
+  const m = ch.match(/Part ([IVX]+)[,\s]+Chapter (\d+)/i);
+  if (m) return 'Pt.' + m[1] + ' · Ch.' + m[2];
+  return ch;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+let toastTimer = null;
+function toast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'show' + (type ? ' ' + type : '');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.className = ''; }, 2200);
+}
+
+function speak(word) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = 'en-US'; u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function render() {
+  const group = GROUPS[S.gIdx];
+  const entry = group[S.wIdx];
+  const isStarred = S.starred.has(entry.word);
+
+  // Group nav
+  document.getElementById('groupNumDisplay').textContent = (S.gIdx + 1) + ' / ' + NUM_GROUPS;
+  document.getElementById('prevGroupBtn').disabled = S.gIdx === 0;
+  document.getElementById('nextGroupBtn').disabled = S.gIdx === NUM_GROUPS - 1;
+  renderGroupDots();
+
+  // Word nav
+  document.getElementById('wordNumDisplay').textContent = S.wIdx + 1;
+  document.getElementById('groupSizeDisplay').textContent = group.length;
+  document.getElementById('prevWordBtn').disabled = S.wIdx === 0;
+  document.getElementById('nextWordBtn').disabled = S.wIdx === group.length - 1;
+
+  // Star button
+  const sb = document.getElementById('starBtn');
+  sb.textContent = isStarred ? '★' : '☆';
+  sb.classList.toggle('starred', isStarred);
+
+  // Word card
+  document.getElementById('wordDisplay').textContent = entry.word;
+  document.getElementById('pronDisplay').textContent = entry.pron;
+  document.getElementById('chapterBadge').textContent = chapterShort(entry.chapter);
+  document.getElementById('defEn').textContent = entry.def_en;
+  document.getElementById('defZh').textContent = entry.def_zh;
+
+  // Sentence tabs
+  document.getElementById('tabNovel').classList.toggle('active', S.sentTab === 0);
+  document.getElementById('tabAI').classList.toggle('active', S.sentTab === 1);
+
+  // Sentence content
+  let sentEn, sentZh, sentSource;
+  if (S.sentTab === 0) {
+    sentEn = highlightWord(entry.quote_en, entry.word);
+    sentZh = entry.quote_zh;
+    sentSource = '— George Orwell, <em>1984</em> · ' + entry.chapter;
+  } else {
+    sentEn = highlightWord(entry.ex_en, entry.word);
+    sentZh = entry.ex_zh;
+    sentSource = '— AI example · Thematically aligned with <em>1984</em>';
+  }
+  document.getElementById('sentEn').innerHTML = sentEn;
+  document.getElementById('sentZh').textContent = sentZh;
+  document.getElementById('sentSource').innerHTML = sentSource;
+
+  // Starred section
+  renderStarredSection();
+
+  // My sentences for this word
+  renderMySentences();
+
+  // Quiz header subtitle
+  document.getElementById('quizStartDesc').textContent =
+    'Test yourself on Group ' + (S.gIdx + 1) + '. Fill in the missing words from Orwell\'s own sentences.';
+  const done = S.quizDone[S.gIdx];
+  const badge = document.getElementById('quizScoreBadge');
+  if (done !== undefined) {
+    badge.style.display = 'inline-block';
+    badge.textContent = done.score + ' / ' + done.total + ' correct';
+  } else {
+    badge.style.display = 'none';
+  }
+
+  // Starred header count
+  const cnt = S.starred.size;
+  document.getElementById('starredCount').textContent = cnt;
+  document.getElementById('starredCountHeader').textContent = cnt;
+}
+
+function renderGroupDots() {
+  const wrap = document.getElementById('groupDots');
+  wrap.innerHTML = '';
+  for (let i = 0; i < NUM_GROUPS; i++) {
+    const d = document.createElement('div');
+    d.className = 'group-dot' +
+      (i === S.gIdx ? ' active' : '') +
+      (S.quizDone[i] !== undefined && i !== S.gIdx ? ' done' : '');
+    wrap.appendChild(d);
+  }
+}
+
+function renderStarredSection() {
+  const list = document.getElementById('starredList');
+  list.innerHTML = '';
+  if (S.starred.size === 0) {
+    list.innerHTML = '<div class="starred-empty">No starred words yet. Tap ☆ on any word to save it.</div>';
+  } else {
+    [...S.starred].forEach(word => {
+      const idx = VOCAB.findIndex(v => v.word === word);
+      if (idx === -1) return;
+      const chip = document.createElement('button');
+      chip.className = 'starred-chip';
+      chip.textContent = word;
+      chip.title = VOCAB[idx].def_en;
+      chip.addEventListener('click', () => navigateToWord(idx));
+      list.appendChild(chip);
+    });
+  }
+  renderStarredQuizStart();
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function goGroup(idx) {
+  S.gIdx = Math.max(0, Math.min(NUM_GROUPS - 1, idx));
+  S.wIdx = 0;
+  S.sentTab = 0;
+  resetQuizUI();
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goWord(idx) {
+  const group = GROUPS[S.gIdx];
+  S.wIdx = Math.max(0, Math.min(group.length - 1, idx));
+  S.sentTab = 0;
+  render();
+}
+
+function navigateToWord(vocabIdx) {
+  // Find which group and word position
+  let cumulative = 0;
+  for (let g = 0; g < NUM_GROUPS; g++) {
+    if (vocabIdx < cumulative + GROUPS[g].length) {
+      S.gIdx = g;
+      S.wIdx = vocabIdx - cumulative;
+      S.sentTab = 0;
+      resetQuizUI();
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    cumulative += GROUPS[g].length;
+  }
+}
+
+// ============================================================
+// STAR
+// ============================================================
+function toggleStar() {
+  const word = GROUPS[S.gIdx][S.wIdx].word;
+  if (S.starred.has(word)) {
+    S.starred.delete(word);
+    toast('Removed from starred', '');
+  } else {
+    S.starred.add(word);
+    toast('⭐ Starred: ' + word, 'gold');
+  }
+  saveStarred();
+  render();
+}
+
+// ============================================================
+// QUIZ
+// ============================================================
+function resetQuizUI() {
+  S.quiz = null;
+  document.getElementById('quizBody').classList.remove('open');
+  document.getElementById('quizToggleIcon').classList.remove('open');
+  document.getElementById('quizStartArea').style.display = 'block';
+  document.getElementById('quizQuestionArea').style.display = 'none';
+  document.getElementById('quizResult').style.display = 'none';
+}
+
+function startQuiz() {
+  const group = GROUPS[S.gIdx];
+  // Build question list: one per word, shuffled order
+  const questions = shuffle(group.map((entry, i) => ({ entry, groupIdx: i })));
+  S.quiz = {
+    questions,
+    qIdx: 0,
+    score: 0,
+    answered: false,
+  };
+  document.getElementById('quizStartArea').style.display = 'none';
+  document.getElementById('quizQuestionArea').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = S.quiz;
+  const { entry } = q.questions[q.qIdx];
+  const total = q.questions.length;
+  const group = GROUPS[S.gIdx];
+
+  // Progress
+  document.getElementById('quizQNum').textContent = 'Question ' + (q.qIdx + 1) + ' / ' + total;
+  document.getElementById('quizProgressFill').style.width = ((q.qIdx / total) * 100) + '%';
+
+  // Sentence with blank
+  document.getElementById('quizSentence').innerHTML = blankWord(entry.quote_en, entry.word);
+
+  // Choices: correct + 3 distractors from group
+  const distractors = shuffle(group.map(w => w.word).filter(w => w !== entry.word)).slice(0, 3);
+  const choices = shuffle([entry.word, ...distractors]);
+
+  const labels = ['A', 'B', 'C', 'D'];
+  const container = document.getElementById('quizChoices');
+  container.innerHTML = '';
+  choices.forEach((word, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = '<span class="choice-label">' + labels[i] + '</span>' + word;
+    btn.dataset.word = word;
+    btn.addEventListener('click', () => checkAnswer(word, entry.word));
+    container.appendChild(btn);
+  });
+
+  // Reset feedback
+  const fb = document.getElementById('quizFeedback');
+  fb.style.display = 'none';
+  fb.className = 'quiz-feedback';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  q.answered = false;
+}
+
+function checkAnswer(chosen, correct) {
+  if (S.quiz.answered) return;
+  S.quiz.answered = true;
+
+  const btns = document.querySelectorAll('.choice-btn');
+  btns.forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.word === correct) btn.classList.add('correct');
+    else if (btn.dataset.word === chosen && chosen !== correct) btn.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('quizFeedback');
+  if (chosen === correct) {
+    S.quiz.score++;
+    fb.className = 'quiz-feedback correct-fb';
+    fb.textContent = '✓ Correct! "' + correct + '" is right.';
+  } else {
+    fb.className = 'quiz-feedback wrong-fb';
+    fb.textContent = '✗ The answer is "' + correct + '".';
+  }
+  fb.style.display = 'block';
+
+  const nextBtn = document.getElementById('quizNextBtn');
+  const isLast = S.quiz.qIdx === S.quiz.questions.length - 1;
+  nextBtn.textContent = isLast ? 'See Results →' : 'Next Question →';
+  nextBtn.style.display = 'inline-block';
+}
+
+function quizNext() {
+  const q = S.quiz;
+  const total = q.questions.length;
+  if (q.qIdx < total - 1) {
+    q.qIdx++;
+    renderQuestion();
+  } else {
+    // Show results
+    const pct = Math.round((q.score / total) * 100);
+    const emoji = pct >= 80 ? '🎉' : pct >= 60 ? '👍' : '📚';
+    document.getElementById('quizQuestionArea').style.display = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('quizProgressFill').style.width = '100%';
+    document.getElementById('quizResultScore').textContent = emoji + ' ' + q.score + ' / ' + total;
+    document.getElementById('quizResultLabel').textContent =
+      pct >= 80 ? 'Excellent! Keep it up.' :
+      pct >= 60 ? 'Good work! Review the ones you missed.' :
+                  'Keep studying — you\'ll get there!';
+    S.quizDone[S.gIdx] = { score: q.score, total };
+    render();
+  }
+}
+
+// ============================================================
+// MY SENTENCES
+// ============================================================
+function renderMySentences() {
+  const word = GROUPS[S.gIdx][S.wIdx].word;
+  const sents = S.sentences[word] || [];
+  const max = 3;
+
+  // Counter
+  const counter = document.getElementById('mySentCounter');
+  counter.textContent = sents.length + ' / ' + max;
+  counter.className = 'my-sent-counter' + (sents.length >= max ? ' full' : '');
+
+  // Input: disable when full
+  const input = document.getElementById('mySentInput');
+  const saveBtn = document.getElementById('mySentSaveBtn');
+  input.disabled = sents.length >= max;
+  saveBtn.disabled = sents.length >= max;
+  input.placeholder = sents.length >= max
+    ? 'Maximum 3 sentences saved ✓'
+    : 'Write your own sentence using "' + word + '"…';
+
+  // List
+  const list = document.getElementById('mySentList');
+  list.innerHTML = '';
+  sents.forEach((text, i) => {
+    const item = document.createElement('div');
+    item.className = 'my-sent-item';
+    item.innerHTML =
+      '<span class="my-sent-num">' + (i + 1) + '</span>' +
+      '<span class="my-sent-text">' + escapeHTML(text) + '</span>' +
+      '<button class="my-sent-del" data-idx="' + i + '" title="Delete">✕</button>';
+    item.querySelector('.my-sent-del').addEventListener('click', () => deleteSentence(word, i));
+    list.appendChild(item);
+  });
+}
+
+function escapeHTML(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function addSentence() {
+  const word = GROUPS[S.gIdx][S.wIdx].word;
+  const input = document.getElementById('mySentInput');
+  const text = input.value.trim();
+  if (!text) { toast('Please write a sentence first.', ''); return; }
+  if (!S.sentences[word]) S.sentences[word] = [];
+  if (S.sentences[word].length >= 3) { toast('Max 3 sentences per word.', ''); return; }
+  // Encourage the word to appear in the sentence
+  const wordLower = word.toLowerCase();
+  const rootLower = wordLower.substring(0, Math.max(4, Math.floor(wordLower.length * 0.72)));
+  if (!text.toLowerCase().includes(rootLower)) {
+    toast('💡 Try to use "' + word + '" in your sentence!', '');
+  }
+  S.sentences[word].push(text);
+  saveSentences();
+  input.value = '';
+  renderMySentences();
+  toast('✓ Sentence saved!', 'good');
+}
+
+function deleteSentence(word, idx) {
+  if (!S.sentences[word]) return;
+  S.sentences[word].splice(idx, 1);
+  if (S.sentences[word].length === 0) delete S.sentences[word];
+  saveSentences();
+  renderMySentences();
+}
+
+// ============================================================
+// STARRED QUIZ
+// ============================================================
+function renderStarredQuizStart() {
+  const count = S.starred.size;
+  const canStart = count >= 5;
+  document.getElementById('sqDesc').textContent = canStart
+    ? 'Quiz yourself on all ' + count + ' starred words using Orwell\'s own sentences.'
+    : 'Keep starring words to unlock your personal quiz.';
+  document.getElementById('sqStartBtn').style.display = canStart ? 'inline-block' : 'none';
+  document.getElementById('sqUnlockHint').style.display = canStart ? 'none' : 'block';
+  document.getElementById('sqStarredCount').textContent = count;
+  document.getElementById('sqStartArea').style.display = 'block';
+  document.getElementById('sqQuestionArea').style.display = 'none';
+  document.getElementById('sqResult').style.display = 'none';
+}
+
+function startStarredQuiz() {
+  const starredWords = [...S.starred];
+  if (starredWords.length < 5) return;
+
+  // Build questions from starred vocab entries
+  const entries = starredWords
+    .map(w => VOCAB.find(v => v.word === w))
+    .filter(Boolean);
+
+  const questions = shuffle(entries);
+  S.sqQuiz = { questions, qIdx: 0, score: 0, answered: false };
+
+  document.getElementById('sqStartArea').style.display = 'none';
+  document.getElementById('sqQuestionArea').style.display = 'block';
+  document.getElementById('sqResult').style.display = 'none';
+  renderSQQuestion();
+}
+
+function renderSQQuestion() {
+  const q = S.sqQuiz;
+  const entry = q.questions[q.qIdx];
+  const total = q.questions.length;
+
+  document.getElementById('sqQNum').textContent = 'Question ' + (q.qIdx + 1) + ' / ' + total;
+  document.getElementById('sqProgressFill').style.width = ((q.qIdx / total) * 100) + '%';
+  document.getElementById('sqSentence').innerHTML = blankWord(entry.quote_en, entry.word);
+
+  // 3 distractors: prefer from starred pool, fill from VOCAB if needed
+  const pool = [...S.starred].filter(w => w !== entry.word);
+  const starredDistractors = shuffle(pool).slice(0, 3);
+  const needed = 3 - starredDistractors.length;
+  let extra = [];
+  if (needed > 0) {
+    extra = shuffle(VOCAB.map(v => v.word).filter(w => w !== entry.word && !S.starred.has(w))).slice(0, needed);
+  }
+  const choices = shuffle([entry.word, ...starredDistractors, ...extra].slice(0, 4));
+
+  const labels = ['A', 'B', 'C', 'D'];
+  const container = document.getElementById('sqChoices');
+  container.innerHTML = '';
+  choices.forEach((word, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = '<span class="choice-label">' + labels[i] + '</span>' + word;
+    btn.dataset.word = word;
+    btn.addEventListener('click', () => checkSQAnswer(word, entry.word, entry.def_en));
+    container.appendChild(btn);
+  });
+
+  const fb = document.getElementById('sqFeedback');
+  fb.style.display = 'none';
+  fb.className = 'quiz-feedback';
+  document.getElementById('sqNextBtn').style.display = 'none';
+  q.answered = false;
+}
+
+function checkSQAnswer(chosen, correct, defHint) {
+  if (S.sqQuiz.answered) return;
+  S.sqQuiz.answered = true;
+
+  document.querySelectorAll('#sqChoices .choice-btn').forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.word === correct) btn.classList.add('correct');
+    else if (btn.dataset.word === chosen && chosen !== correct) btn.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('sqFeedback');
+  if (chosen === correct) {
+    S.sqQuiz.score++;
+    fb.className = 'quiz-feedback correct-fb';
+    fb.textContent = '✓ Correct! "' + correct + '" — ' + defHint.split(';')[0] + '.';
+  } else {
+    fb.className = 'quiz-feedback wrong-fb';
+    fb.textContent = '✗ The answer is "' + correct + '" — ' + defHint.split(';')[0] + '.';
+  }
+  fb.style.display = 'block';
+
+  const nextBtn = document.getElementById('sqNextBtn');
+  const isLast = S.sqQuiz.qIdx === S.sqQuiz.questions.length - 1;
+  nextBtn.textContent = isLast ? 'See Results →' : 'Next →';
+  nextBtn.style.display = 'inline-block';
+}
+
+function sqNext() {
+  const q = S.sqQuiz;
+  if (q.qIdx < q.questions.length - 1) {
+    q.qIdx++;
+    renderSQQuestion();
+  } else {
+    const total = q.questions.length;
+    const pct = Math.round((q.score / total) * 100);
+    const emoji = pct >= 80 ? '🎉' : pct >= 60 ? '👍' : '📚';
+    document.getElementById('sqQuestionArea').style.display = 'none';
+    document.getElementById('sqResult').style.display = 'block';
+    document.getElementById('sqProgressFill').style.width = '100%';
+    document.getElementById('sqResultScore').textContent = emoji + ' ' + q.score + ' / ' + total;
+    document.getElementById('sqResultLabel').textContent =
+      pct >= 80 ? 'Excellent — your starred words are solid!' :
+      pct >= 60 ? 'Good progress. Review the ones you missed.' :
+                  'Keep studying — revisit your starred words.';
+  }
+}
+
+// ============================================================
+// EVENTS
+// ============================================================
+document.getElementById('prevGroupBtn').addEventListener('click', () => goGroup(S.gIdx - 1));
+document.getElementById('nextGroupBtn').addEventListener('click', () => goGroup(S.gIdx + 1));
+document.getElementById('prevWordBtn').addEventListener('click', () => goWord(S.wIdx - 1));
+document.getElementById('nextWordBtn').addEventListener('click', () => goWord(S.wIdx + 1));
+
+document.getElementById('starBtn').addEventListener('click', toggleStar);
+document.getElementById('speakBtn').addEventListener('click', () => speak(GROUPS[S.gIdx][S.wIdx].word));
+document.getElementById('speakBtn2').addEventListener('click', () => speak(GROUPS[S.gIdx][S.wIdx].word));
+
+document.getElementById('tabNovel').addEventListener('click', () => { S.sentTab = 0; render(); });
+document.getElementById('tabAI').addEventListener('click',   () => { S.sentTab = 1; render(); });
+
+// My Sentences
+document.getElementById('mySentSaveBtn').addEventListener('click', addSentence);
+document.getElementById('mySentInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); addSentence(); }
+});
+
+// Starred Quiz
+document.getElementById('sqStartBtn').addEventListener('click', startStarredQuiz);
+document.getElementById('sqNextBtn').addEventListener('click', sqNext);
+document.getElementById('sqRetryBtn').addEventListener('click', startStarredQuiz);
+document.getElementById('sqResetBtn').addEventListener('click', renderStarredQuizStart);
+
+// Quiz accordion
+document.getElementById('quizHeader').addEventListener('click', () => {
+  const body = document.getElementById('quizBody');
+  const icon = document.getElementById('quizToggleIcon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+});
+document.getElementById('quizStartBtn').addEventListener('click', startQuiz);
+document.getElementById('quizSkipBtn').addEventListener('click', () => {
+  document.getElementById('quizBody').classList.remove('open');
+  document.getElementById('quizToggleIcon').classList.remove('open');
+});
+document.getElementById('quizNextBtn').addEventListener('click', quizNext);
+document.getElementById('quizRetryBtn').addEventListener('click', () => {
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('quizStartArea').style.display = 'block';
+});
+document.getElementById('quizCloseBtn').addEventListener('click', () => {
+  document.getElementById('quizBody').classList.remove('open');
+  document.getElementById('quizToggleIcon').classList.remove('open');
+});
+
+// Starred accordion
+document.getElementById('starredHeader').addEventListener('click', () => {
+  const body = document.getElementById('starredBody');
+  const icon = document.getElementById('starredToggleIcon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+});
+document.getElementById('starredToggleBtn').addEventListener('click', () => {
+  const body = document.getElementById('starredBody');
+  const icon = document.getElementById('starredToggleIcon');
+  body.classList.add('open');
+  icon.classList.add('open');
+  document.getElementById('starredSection').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  const tag = document.activeElement.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+  switch(e.key) {
+    case 'ArrowRight': e.preventDefault(); goWord(S.wIdx + 1); break;
+    case 'ArrowLeft':  e.preventDefault(); goWord(S.wIdx - 1); break;
+    case 'ArrowUp':    e.preventDefault(); goGroup(S.gIdx - 1); break;
+    case 'ArrowDown':  e.preventDefault(); goGroup(S.gIdx + 1); break;
+    case 's': case 'S': toggleStar(); break;
+    case 'p': case 'P': speak(GROUPS[S.gIdx][S.wIdx].word); break;
+    case '1': S.sentTab = 0; render(); break;
+    case '2': S.sentTab = 1; render(); break;
+  }
+});
+
+// ============================================================
+// INIT
+// ============================================================
+render();
+</script>
+</body>
+</html>
