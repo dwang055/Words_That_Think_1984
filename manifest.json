@@ -2,7 +2,7 @@
   "name": "Words That Think — 1984 Vocabulary",
   "short_name": "Words That Think",
   "description": "Learn 100 vocabulary words from George Orwell's 1984 through literature's most memorable sentences.",
-  "start_url": "./Words_That_Think_1984.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0d0d0d",
