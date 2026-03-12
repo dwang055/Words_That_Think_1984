@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Words That Think · 1984 Vocabulary</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
-<meta name="description" content="Learn 100 vocabulary words from George Orwell's 1984 through literature's most memorable sentences.">
-<meta name="theme-color" content="#06131a">
+<!-- No external font dependencies — fully offline -->
 <style>
 :root {
   --bg:       #06131a;
@@ -43,7 +42,11 @@ body {
   padding-bottom: 40px;
 }
 button { font-family: inherit; color: var(--text); cursor: pointer; }
+
+/* ── WRAPPER ── */
 .wrapper { max-width: 680px; margin: 0 auto; padding: 0 14px; }
+
+/* ── HEADER ── */
 .app-header {
   text-align: center;
   padding: 32px 10px 22px;
@@ -93,6 +96,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
 }
 .header-badge:hover { background: rgba(122,208,224,.08); border-color: var(--s60); }
 .header-badge.active { background: var(--good15); border-color: var(--good60); color: var(--good); }
+
+/* ── GROUP NAV ── */
 .group-nav {
   display: flex;
   align-items: center;
@@ -150,6 +155,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
 }
 .nav-pill:hover:not(:disabled) { background: rgba(122,208,224,.15); border-color: var(--s60); color: var(--text); }
 .nav-pill:disabled { opacity: .35; pointer-events: none; }
+
+/* ── WORD NAV ── */
 .word-nav {
   display: flex;
   align-items: center;
@@ -184,6 +191,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
 .icon-btn:hover { background: rgba(122,208,224,.15); border-color: var(--s60); color: var(--text); }
 .icon-btn.starred { color: var(--gold); border-color: var(--gold50); background: var(--gold10); }
 .icon-btn:disabled { opacity: .3; pointer-events: none; }
+
+/* ── WORD CARD ── */
 .word-card {
   margin-top: 10px;
   background: linear-gradient(160deg, rgba(14,34,48,.85), rgba(11,27,36,.95));
@@ -246,6 +255,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   white-space: nowrap;
   align-self: flex-start;
 }
+
+/* ── DEFINITION ── */
 .definition-block {
   padding: 14px 20px 16px;
   border-bottom: 1px solid var(--s20);
@@ -262,6 +273,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   margin-top: 4px;
   font-weight: 500;
 }
+
+/* ── SENTENCE TOGGLE ── */
 .sentence-tab-row {
   display: flex;
   gap: 0;
@@ -285,6 +298,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   border-bottom-color: var(--good);
   background: rgba(110,247,200,.04);
 }
+
+/* ── SENTENCE CONTENT ── */
 .sentence-content {
   padding: 18px 20px 20px;
 }
@@ -319,14 +334,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   text-align: right;
   letter-spacing: .04em;
 }
-.quiz-phase-label {
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted2);
-  margin-bottom: 10px;
-}
+
+/* ── QUIZ SECTION ── */
 .quiz-section {
   margin-top: 14px;
   background: var(--panel);
@@ -371,12 +380,14 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
 }
 .quiz-toggle-icon { font-size: 0.85rem; color: var(--muted2); transition: transform .2s; }
 .quiz-toggle-icon.open { transform: rotate(180deg); }
+
 .quiz-body {
   display: none;
   padding: 0 18px 18px;
   border-top: 1px solid var(--s20);
 }
 .quiz-body.open { display: block; }
+
 .quiz-progress-bar {
   height: 4px;
   background: rgba(122,208,224,.12);
@@ -390,6 +401,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   border-radius: 999px;
   transition: width .3s ease;
 }
+
 .quiz-q-num {
   font-size: 0.75rem;
   color: var(--muted2);
@@ -398,6 +410,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   letter-spacing: .08em;
   margin-bottom: 10px;
 }
+
 .quiz-sentence {
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
@@ -411,6 +424,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   margin-bottom: 16px;
 }
 .blank { color: var(--gold); font-style: normal; font-weight: 700; letter-spacing: .1em; }
+
 .quiz-choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -444,6 +458,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
 .choice-btn.correct { background: var(--good15); border-color: var(--good60); color: var(--good); }
 .choice-btn.wrong   { background: var(--bad12);  border-color: var(--bad55);  color: var(--bad); }
 .choice-btn:disabled { pointer-events: none; opacity: .7; }
+
 .quiz-feedback {
   font-size: 0.85rem;
   font-weight: 700;
@@ -454,6 +469,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
 }
 .quiz-feedback.correct-fb { background: var(--good15); color: var(--good); border: 1px solid var(--good60); }
 .quiz-feedback.wrong-fb   { background: var(--bad12);  color: var(--bad);  border: 1px solid var(--bad55); }
+
 .quiz-next-btn {
   background: rgba(122,208,224,.1);
   border: 1px solid var(--s60);
@@ -466,6 +482,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   transition: background .15s;
 }
 .quiz-next-btn:hover { background: rgba(122,208,224,.18); }
+
 .quiz-result {
   display: none;
   text-align: center;
@@ -495,6 +512,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   transition: background .15s;
 }
 .quiz-retry-btn:hover { background: rgba(110,247,200,.25); }
+
 .quiz-start-area {
   padding: 16px 0 4px;
   text-align: center;
@@ -525,6 +543,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* ── STARRED SECTION ── */
 .starred-section {
   margin-top: 14px;
   background: var(--panel);
@@ -553,6 +573,7 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   font-weight: 700;
   color: var(--gold);
 }
+
 .starred-body { display: none; padding: 0 18px 18px; border-top: 1px solid var(--s20); }
 .starred-body.open { display: block; }
 .starred-list {
@@ -580,6 +601,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   font-style: italic;
   text-align: center;
 }
+
+/* ── MY SENTENCES ── */
 .my-sentences-block {
   padding: 16px 20px 18px;
   border-top: 1px solid var(--s20);
@@ -682,6 +705,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   transition: color .15s, opacity .15s;
 }
 .my-sent-del:hover { color: var(--bad); opacity: 1; }
+
+/* ── STARRED QUIZ ── */
 .starred-quiz-divider {
   height: 1px;
   background: var(--s20);
@@ -699,6 +724,8 @@ button { font-family: inherit; color: var(--text); cursor: pointer; }
   color: var(--muted2);
   font-style: italic;
 }
+
+/* ── FOOTER ── */
 footer {
   margin-top: 36px;
   padding: 20px 14px 28px;
@@ -723,6 +750,8 @@ footer {
   margin-right: auto;
   line-height: 1.7;
 }
+
+/* ── TOAST ── */
 #toast {
   position: fixed;
   bottom: 24px;
@@ -743,93 +772,14 @@ footer {
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 #toast.gold { border-color: var(--gold50); color: var(--gold); }
 #toast.good { border-color: var(--good60); color: var(--good); }
+
+/* ── RESPONSIVE ── */
 @media (max-width: 480px) {
   .word-card-top { flex-wrap: wrap; }
   .quiz-choices { grid-template-columns: 1fr; }
   .group-dots { display: none; }
   .nav-pill { padding: 7px 12px; font-size: 0.8rem; }
 }
-.synan-block {
-  padding: 10px 20px 14px;
-  border-bottom: 1px solid var(--s20);
-  display: flex; gap: 14px; flex-wrap: wrap;
-}
-.synan-group { flex: 1; min-width: 0; }
-.synan-label {
-  font-size: 0.65rem; font-weight: 900; text-transform: uppercase;
-  letter-spacing: .1em; margin-bottom: 5px;
-}
-.synan-label.syn { color: var(--good); }
-.synan-label.ant { color: var(--bad); }
-.synan-chips { display: flex; flex-wrap: wrap; gap: 5px; }
-.synan-chip {
-  font-size: 0.75rem; font-weight: 600; padding: 3px 9px;
-  border-radius: 999px;
-}
-.synan-chip.syn { background: rgba(110,247,200,.1); border: 1px solid rgba(110,247,200,.35); color: var(--good); }
-.synan-chip.ant { background: rgba(255,92,122,.08); border: 1px solid rgba(255,92,122,.3);  color: var(--bad); }
-.spell-content { padding: 18px 20px 22px; }
-.spell-sentence {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-size: clamp(0.9rem, 3vw, 1rem);
-  line-height: 1.85;
-  color: rgba(231,251,255,.88);
-  margin-bottom: 18px;
-}
-.spell-sentence .hl { font-style: normal; font-weight: 700; color: var(--gold2); }
-.spell-boxes {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  justify-content: center; margin-bottom: 18px;
-}
-.spell-box {
-  width: 34px; height: 40px;
-  border: 2px solid var(--s35);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; font-weight: 800; text-transform: lowercase;
-  background: rgba(122,208,224,.05);
-  transition: border-color .15s, background .15s;
-  flex-shrink: 0;
-}
-.spell-box.filled   { border-color: var(--s60); background: rgba(122,208,224,.1); color: var(--text); }
-.spell-box.correct  { border-color: var(--good); background: rgba(110,247,200,.15); color: var(--good); }
-.spell-box.wrong    { border-color: var(--bad);  background: rgba(255,92,122,.12);  color: var(--bad); }
-.spell-box.cursor   { border-color: var(--gold); animation: spell-blink .9s ease infinite; }
-@keyframes spell-blink { 0%,100% { border-color: var(--gold); } 50% { border-color: transparent; } }
-.spell-input-row {
-  display: flex; gap: 8px; align-items: center; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-.spell-input {
-  background: rgba(122,208,224,.06); border: 1px solid var(--s35);
-  border-radius: 12px; color: var(--text); font-family: inherit;
-  font-size: 1rem; font-weight: 700; padding: 9px 14px; outline: none;
-  width: 180px; text-align: center; letter-spacing: .12em;
-  transition: border-color .15s;
-}
-.spell-input:focus { border-color: var(--s60); }
-.spell-input::placeholder { color: var(--muted2); font-weight: 400; letter-spacing: 0; }
-.spell-check-btn {
-  background: var(--good15); border: 1px solid var(--good60);
-  border-radius: 12px; padding: 9px 18px;
-  font-size: .88rem; font-weight: 800; color: var(--good);
-  transition: background .15s;
-}
-.spell-check-btn:hover { background: rgba(110,247,200,.25); }
-.spell-reveal-btn {
-  background: none; border: none; color: var(--muted2);
-  font-size: .78rem; text-decoration: underline; cursor: pointer;
-  display: block; text-align: center; margin-top: 4px;
-}
-.spell-feedback {
-  text-align: center; font-size: .9rem; font-weight: 800;
-  padding: 10px; border-radius: 10px; margin-top: 4px; display: none;
-}
-.spell-feedback.ok  { background: var(--good15); color: var(--good); border: 1px solid var(--good60); }
-.spell-feedback.err { background: var(--bad12);  color: var(--bad);  border: 1px solid var(--bad55); }
-.spell-hint-row { text-align: center; margin-bottom: 10px; }
-.spell-hint-text { font-size: .78rem; color: var(--muted2); font-style: italic; }
 </style>
 </head>
 <body>
@@ -837,6 +787,8 @@ footer {
 <div id="toast"></div>
 
 <div class="wrapper">
+
+  <!-- HEADER -->
   <div class="app-header">
     <h1>Words That Think</h1>
     <div class="tagline">Increase your vocabulary. Strengthen your thought.</div>
@@ -846,27 +798,31 @@ footer {
     </div>
   </div>
 
+  <!-- GROUP NAV -->
   <div class="group-nav">
-    <button class="nav-pill" id="prevGroupBtn">← Prev</button>
+    <button class="nav-pill" id="prevGroupBtn">&#8592; Prev</button>
     <div class="group-nav-center">
       <div class="group-label">Group</div>
       <div class="group-num" id="groupNumDisplay">1 / 10</div>
       <div class="group-dots" id="groupDots"></div>
     </div>
-    <button class="nav-pill" id="nextGroupBtn">Next →</button>
+    <button class="nav-pill" id="nextGroupBtn">Next &#8594;</button>
   </div>
 
+  <!-- WORD NAV -->
   <div class="word-nav">
-    <button class="nav-pill" id="prevWordBtn">←</button>
+    <button class="nav-pill" id="prevWordBtn">&#8592;</button>
     <div class="word-nav-center">
       <div class="word-counter">Word <span id="wordNumDisplay">1</span> / <span id="groupSizeDisplay">10</span></div>
       <button class="icon-btn" id="starBtn" title="Star this word">☆</button>
       <button class="icon-btn" id="speakBtn" title="Hear pronunciation">🔊</button>
     </div>
-    <button class="nav-pill" id="nextWordBtn">Next →</button>
+    <button class="nav-pill" id="nextWordBtn">Next &#8594;</button>
   </div>
 
+  <!-- WORD CARD -->
   <div class="word-card" id="wordCard">
+    <!-- Top: word + chapter -->
     <div class="word-card-top">
       <div class="word-left">
         <div class="word-display" id="wordDisplay">—</div>
@@ -878,48 +834,26 @@ footer {
       <div class="chapter-badge" id="chapterBadge">—</div>
     </div>
 
+    <!-- Definition -->
     <div class="definition-block">
       <div class="def-en" id="defEn">—</div>
       <div class="def-zh" id="defZh">—</div>
     </div>
 
-    <div class="synan-block" id="synanBlock">
-      <div class="synan-group">
-        <div class="synan-label syn">Synonyms</div>
-        <div class="synan-chips" id="synChips"></div>
-      </div>
-      <div class="synan-group">
-        <div class="synan-label ant">Antonyms</div>
-        <div class="synan-chips" id="antChips"></div>
-      </div>
-    </div>
-
+    <!-- Sentence tabs -->
     <div class="sentence-tab-row">
       <button class="sent-tab active" id="tabNovel">📖 From the Novel</button>
       <button class="sent-tab" id="tabAI">💡 AI Example</button>
-      <button class="sent-tab" id="tabSpell">✏️ Spell It</button>
     </div>
 
-    <div class="sentence-content" id="sentenceContent">
+    <!-- Sentence content -->
+    <div class="sentence-content">
       <div class="sent-en" id="sentEn">—</div>
       <div class="sent-zh" id="sentZh">—</div>
       <div class="sent-source" id="sentSource">—</div>
     </div>
 
-    <div class="spell-content" id="spellContent" style="display:none;">
-      <div class="spell-hint-row"><span class="spell-hint-text" id="spellHint">Type the missing word from the AI example sentence.</span></div>
-      <div class="spell-sentence" id="spellSentence">—</div>
-      <div class="spell-boxes" id="spellBoxes"></div>
-      <div class="spell-input-row">
-        <input type="text" class="spell-input" id="spellInput"
-          placeholder="type the word…"
-          autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-        <button class="spell-check-btn" id="spellCheckBtn">Check</button>
-      </div>
-      <button class="spell-reveal-btn" id="spellRevealBtn">Show answer</button>
-      <div class="spell-feedback" id="spellFeedback"></div>
-    </div>
-
+    <!-- My Sentences -->
     <div class="my-sentences-block">
       <div class="my-sent-header">
         <span class="my-sent-title">✍️ My Sentences</span>
@@ -935,12 +869,13 @@ footer {
     </div>
   </div>
 
+  <!-- QUIZ SECTION -->
   <div class="quiz-section" id="quizSection">
     <div class="quiz-header" id="quizHeader">
       <div class="quiz-header-left">
         <div>
           <div class="quiz-title">📝 Group Quiz</div>
-          <div class="quiz-subtitle" id="quizSubtitle">Part 1: Choose · Part 2: Spell</div>
+          <div class="quiz-subtitle" id="quizSubtitle">Fill-in-the-blank · Orwell's sentences</div>
         </div>
         <div class="quiz-score-badge" id="quizScoreBadge">—</div>
       </div>
@@ -949,38 +884,22 @@ footer {
       </div>
     </div>
     <div class="quiz-body" id="quizBody">
+      <!-- Start area -->
       <div class="quiz-start-area" id="quizStartArea">
         <div class="quiz-start-desc" id="quizStartDesc">Test yourself on Group 1. Fill in the blanks using words from this group.</div>
         <button class="quiz-start-btn" id="quizStartBtn">Start Quiz</button>
         <button class="quiz-skip-btn" id="quizSkipBtn">Skip</button>
       </div>
+      <!-- Question area -->
       <div id="quizQuestionArea" style="display:none;">
         <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
         <div class="quiz-q-num" id="quizQNum">Question 1 / 10</div>
-
-        <div id="quizPhase1">
-          <div class="quiz-phase-label">📖 Choose the word — Orwell's sentence</div>
-          <div class="quiz-sentence" id="quizSentence">—</div>
-          <div class="quiz-choices" id="quizChoices"></div>
-          <div class="quiz-feedback" id="quizFeedback"></div>
-        </div>
-
-        <div id="quizPhase2" style="display:none;">
-          <div class="quiz-phase-label">💡 Spell the word — AI example sentence</div>
-          <div class="quiz-sentence" id="qSpellSentence">—</div>
-          <div class="spell-boxes" id="qSpellBoxes"></div>
-          <div class="spell-input-row">
-            <input type="text" class="spell-input" id="qSpellInput"
-              placeholder="type the word…"
-              autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-            <button class="spell-check-btn" id="qSpellCheckBtn">Check</button>
-          </div>
-          <button class="spell-reveal-btn" id="qSpellRevealBtn">Show answer</button>
-          <div class="quiz-feedback" id="qSpellFeedback"></div>
-        </div>
-
-        <button class="quiz-next-btn" id="quizNextBtn" style="display:none;">Next →</button>
+        <div class="quiz-sentence" id="quizSentence">—</div>
+        <div class="quiz-choices" id="quizChoices"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+        <button class="quiz-next-btn" id="quizNextBtn">Next Question →</button>
       </div>
+      <!-- Result area -->
       <div class="quiz-result" id="quizResult">
         <div class="quiz-result-score" id="quizResultScore">—</div>
         <div class="quiz-result-label" id="quizResultLabel">—</div>
@@ -992,6 +911,7 @@ footer {
     </div>
   </div>
 
+  <!-- STARRED SECTION -->
   <div class="starred-section" id="starredSection">
     <div class="starred-header" id="starredHeader">
       <div class="starred-header-left">
@@ -1003,6 +923,7 @@ footer {
     <div class="starred-body" id="starredBody">
       <div class="starred-list" id="starredList"></div>
 
+      <!-- Starred Words Quiz -->
       <div class="starred-quiz-wrap" id="starredQuizWrap">
         <div class="starred-quiz-divider"></div>
         <div class="sq-start-area" id="sqStartArea">
@@ -1030,10 +951,11 @@ footer {
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-author">
       Created by <strong>Daniel Wang</strong> &nbsp;·&nbsp;
-      Words from <em>George Orwell's 1984</em> (1949) &nbsp;·&nbsp;
+      Words from <em>George Orwell's 1984</em> (1949, Secker &amp; Warburg) &nbsp;·&nbsp;
       For Educational Use &nbsp;·&nbsp; © 2026
       <br>
       Chinese translations for vocabulary reference purposes.
@@ -1044,12 +966,12 @@ footer {
       <br>— George Orwell, 1984
     </div>
   </footer>
-</div>
+
+</div><!-- /wrapper -->
 
 <script>
 // ============================================================
-// PASTE YOUR COMPLETE VOCAB ARRAY HERE (ALL 100 WORDS)
-// ============================================================
+// DATA
 // ============================================================
 const VOCAB = [
   {
@@ -1099,8 +1021,8 @@ const VOCAB = [
   {
     word: `ramifications`,
     pron: `/ˌræmɪfɪˈkeɪʃnz/`,
-    def_en: `complex consequences or branches of a situation`,
-    def_zh: `复杂的后果；影响；分支`,
+    def_en: `complex consequences or分支 results; 分支；后果`,
+    def_zh: ``,
     quote_en: `The Ministry of Truth contained, it was said, three thousand rooms above ground level, and corresponding ramifications below.`,
     quote_zh: `据说，真理部在地面上有三千间屋子，和地面下的结构相等。`,
     ex_en: `The ramifications of totalitarianism extend far beyond politics, poisoning art, language, and human relationships themselves.`,
@@ -2175,14 +2097,8 @@ const VOCAB = [
     chapter: `Part I, Chapter 2`,
   },
 ];
-// ============================================================
-// SYNONYMS/ANTONYMS DATA (complete)
-// ============================================================
-const SYNAN = JSON.parse(atob("eyJ2aWxlIjogeyJzeW4iOiBbImRlc3BpY2FibGUiLCAid3JldGNoZWQiLCAiZm91bCJdLCAiYW50IjogWyJub2JsZSIsICJ2aXJ0dW91cyIsICJhZG1pcmFibGUiXX0sICJjb250cml2ZWQiOiB7InN5biI6IFsiYXJ0aWZpY2lhbCIsICJmb3JjZWQiLCAic3RhZ2VkIl0sICJhbnQiOiBbIm5hdHVyYWwiLCAiZ2VudWluZSIsICJzcG9udGFuZW91cyJdfSwgInNpbXVsdGFuZW91c2x5IjogeyJzeW4iOiBbImNvbmN1cnJlbnRseSIsICJhdCBvbmNlIiwgInRvZ2V0aGVyIl0sICJhbnQiOiBbInNlcGFyYXRlbHkiLCAic2VxdWVudGlhbGx5IiwgImluIHR1cm4iXX0sICJzY3J1dGluaXplZCI6IHsic3luIjogWyJleGFtaW5lZCIsICJpbnNwZWN0ZWQiLCAib2JzZXJ2ZWQiXSwgImFudCI6IFsiaWdub3JlZCIsICJvdmVybG9va2VkIiwgIm5lZ2xlY3RlZCJdfSwgInJhbWlmaWNhdGlvbnMiOiB7InN5biI6IFsiY29uc2VxdWVuY2VzIiwgImltcGxpY2F0aW9ucyIsICJyZXBlcmN1c3Npb25zIl0sICJhbnQiOiBbImNhdXNlcyIsICJvcmlnaW5zIiwgInNvdXJjZXMiXX0sICJkd2FyZmVkIjogeyJzeW4iOiBbIm92ZXJzaGFkb3dlZCIsICJkaW1pbmlzaGVkIiwgImVjbGlwc2VkIl0sICJhbnQiOiBbInRvd2VyZWQgb3ZlciIsICJtYWduaWZpZWQiLCAic3VycGFzc2VkIl19LCAiaW50ZXJtaW5hYmxlIjogeyJzeW4iOiBbImVuZGxlc3MiLCAiY2Vhc2VsZXNzIiwgInBlcnBldHVhbCJdLCAiYW50IjogWyJicmllZiIsICJmaW5pdGUiLCAibW9tZW50YXJ5Il19LCAiY29tcHJvbWlzaW5nIjogeyJzeW4iOiBbImluY3JpbWluYXRpbmciLCAiZGFtYWdpbmciLCAiZW1iYXJyYXNzaW5nIl0sICJhbnQiOiBbImhhcm1sZXNzIiwgImV4b25lcmF0aW5nIiwgImlubm9jZW50Il19LCAibWFnbml0dWRlIjogeyJzeW4iOiBbInNjYWxlIiwgImVub3JtaXR5IiwgImV4dGVudCJdLCAiYW50IjogWyJpbnNpZ25pZmljYW5jZSIsICJ0cml2aWFsaXR5IiwgInNtYWxsbmVzcyJdfSwgInByZWRpY2FtZW50IjogeyJzeW4iOiBbImRpbGVtbWEiLCAicXVhbmRhcnkiLCAicGxpZ2h0Il0sICJhbnQiOiBbInNvbHV0aW9uIiwgImFkdmFudGFnZSIsICJmb3J0dW5lIl19LCAiYmlnb3RlZCI6IHsic3luIjogWyJwcmVqdWRpY2VkIiwgImludG9sZXJhbnQiLCAibmFycm93LW1pbmRlZCJdLCAiYW50IjogWyJvcGVuLW1pbmRlZCIsICJ0b2xlcmFudCIsICJpbXBhcnRpYWwiXX0sICJmb3JtaWRhYmxlIjogeyJzeW4iOiBbImRhdW50aW5nIiwgImltcG9zaW5nIiwgImZlYXJzb21lIl0sICJhbnQiOiBbImZlZWJsZSIsICJ3ZWFrIiwgIm1hbmFnZWFibGUiXX0sICJyZW5lZ2FkZSI6IHsic3luIjogWyJ0cmFpdG9yIiwgImRlZmVjdG9yIiwgInJlYmVsIl0sICJhbnQiOiBbImxveWFsaXN0IiwgImNvbmZvcm1pc3QiLCAicGF0cmlvdCJdfSwgInNwZWNpb3VzIjogeyJzeW4iOiBbIm1pc2xlYWRpbmciLCAiZGVjZXB0aXZlIiwgInBsYXVzaWJsZS1zb3VuZGluZyJdLCAiYW50IjogWyJnZW51aW5lIiwgInZhbGlkIiwgImF1dGhlbnRpYyJdfSwgImNsYW5kZXN0aW5lbHkiOiB7InN5biI6IFsic2VjcmV0bHkiLCAiY292ZXJ0bHkiLCAic3RlYWx0aGlseSJdLCAiYW50IjogWyJvcGVubHkiLCAicHVibGljbHkiLCAidHJhbnNwYXJlbnRseSJdfSwgImZyZW56eSI6IHsic3luIjogWyJoeXN0ZXJpYSIsICJtYW5pYSIsICJmZXZlcmlzaG5lc3MiXSwgImFudCI6IFsiY2FsbSIsICJjb21wb3N1cmUiLCAic2VyZW5pdHkiXX0sICJ2aW5kaWN0aXZlbmVzcyI6IHsic3luIjogWyJzcGl0ZSIsICJtYWxpY2UiLCAidmVuZ2VmdWxuZXNzIl0sICJhbnQiOiBbImZvcmdpdmVuZXNzIiwgImNsZW1lbmN5IiwgIm1lcmN5Il19LCAiaW5zY3J1dGFibGUiOiB7InN5biI6IFsiZW5pZ21hdGljIiwgInVuZmF0aG9tYWJsZSIsICJteXN0ZXJpb3VzIl0sICJhbnQiOiBbInRyYW5zcGFyZW50IiwgImxlZ2libGUiLCAib2J2aW91cyJdfSwgImVxdWl2b2NhbCI6IHsic3luIjogWyJhbWJpZ3VvdXMiLCAidmFndWUiLCAidW5jZXJ0YWluIl0sICJhbnQiOiBbImNsZWFyIiwgImRlZmluaXRpdmUiLCAidW5hbWJpZ3VvdXMiXX0sICJ2YXBvcml6ZWQiOiB7InN5biI6IFsiZWxpbWluYXRlZCIsICJlcmFzZWQiLCAib2JsaXRlcmF0ZWQiXSwgImFudCI6IFsicHJlc2VydmVkIiwgInJlc3RvcmVkIiwgImNyZWF0ZWQiXX0sICJwYWxpbXBzZXN0IjogeyJzeW4iOiBbIm92ZXJ3cml0dGVuIHJlY29yZCIsICJsYXllcmVkIHRleHQiLCAicmV1c2VkIG1hbnVzY3JpcHQiXSwgImFudCI6IFsib3JpZ2luYWwiLCAidW50b3VjaGVkIGRvY3VtZW50IiwgInByaXN0aW5lIHJlY29yZCJdfSwgImZhbHNpZmljYXRpb24iOiB7InN5biI6IFsiZGlzdG9ydGlvbiIsICJmYWJyaWNhdGlvbiIsICJmb3JnZXJ5Il0sICJhbnQiOiBbInRydXRoIiwgImF1dGhlbnRpY2F0aW9uIiwgInZlcmlmaWNhdGlvbiJdfSwgInVucGVyc29ucyI6IHsic3luIjogWyJlcmFzZWQgaW5kaXZpZHVhbHMiLCAiZGVsZXRlZCBwZW9wbGUiLCAibm9uZW50aXRpZXMiXSwgImFudCI6IFsicmVjb2duaXplZCBjaXRpemVucyIsICJhY2tub3dsZWRnZWQgcGVyc29ucyIsICJyZWNvcmRlZCBpbmRpdmlkdWFscyJdfSwgIm9ydGhvZG94eSI6IHsic3luIjogWyJjb25mb3JtaXR5IiwgImNvbnZlbnRpb24iLCAiZG9jdHJpbmUiXSwgImFudCI6IFsiaGVyZXN5IiwgImRpc3NlbnQiLCAiaGV0ZXJvZG94eSJdfSwgInBvbHlzeWxsYWJpYyI6IHsic3luIjogWyJtdWx0aXN5bGxhYmljIiwgImNvbXBsZXgiLCAiZWxhYm9yYXRlIl0sICJhbnQiOiBbIm1vbm9zeWxsYWJpYyIsICJzaW1wbGUiLCAiY29uY2lzZSJdfSwgImNsYXB0cmFwIjogeyJzeW4iOiBbIm5vbnNlbnNlIiwgImRyaXZlbCIsICJydWJiaXNoIl0sICJhbnQiOiBbIndpc2RvbSIsICJzdWJzdGFuY2UiLCAiaW5zaWdodCJdfSwgImNvbXBlbmRpdW0iOiB7InN5biI6IFsic3VtbWFyeSIsICJkaWdlc3QiLCAiYW50aG9sb2d5Il0sICJhbnQiOiBbImV4cGFuc2lvbiIsICJlbGFib3JhdGlvbiIsICJmdWxsIHdvcmsiXX0sICJsdWNpZCI6IHsic3luIjogWyJjbGVhciIsICJjb2hlcmVudCIsICJpbnRlbGxpZ2libGUiXSwgImFudCI6IFsiY29uZnVzZWQiLCAibXVya3kiLCAiaW5jb2hlcmVudCJdfSwgImVjc3Rhc3kiOiB7InN5biI6IFsicmFwdHVyZSIsICJlbGF0aW9uIiwgImJsaXNzIl0sICJhbnQiOiBbIm1pc2VyeSIsICJhbmd1aXNoIiwgImRlc3BhaXIiXX0sICJhYnN0cmFjdCI6IHsic3luIjogWyJ0aGVvcmV0aWNhbCIsICJjb25jZXB0dWFsIiwgImludGFuZ2libGUiXSwgImFudCI6IFsiY29uY3JldGUiLCAidGFuZ2libGUiLCAic3BlY2lmaWMiXX0sICJzaW5pc3RlciI6IHsic3luIjogWyJtZW5hY2luZyIsICJvbWlub3VzIiwgIm1hbGV2b2xlbnQiXSwgImFudCI6IFsiYmVuaWduIiwgIndob2xlc29tZSIsICJpbm5vY2VudCJdfSwgImRpc3NlbWJsZSI6IHsic3luIjogWyJjb25jZWFsIiwgImRpc2d1aXNlIiwgImZlaWduIl0sICJhbnQiOiBbInJldmVhbCIsICJleHBvc2UiLCAiZGlzY2xvc2UiXX0sICJpbmNvbmNlaXZhYmx5IjogeyJzeW4iOiBbInVuaW1hZ2luYWJseSIsICJpbXBvc3NpYmx5IiwgImluY29tcHJlaGVuc2libHkiXSwgImFudCI6IFsiY29uY2VpdmFibHkiLCAicGxhdXNpYmx5IiwgImltYWdpbmFibHkiXX0sICJkcmVhcnkiOiB7InN5biI6IFsiYmxlYWsiLCAiZ2xvb215IiwgImR1bGwiXSwgImFudCI6IFsidmlicmFudCIsICJjaGVlcmZ1bCIsICJsaXZlbHkiXX0sICJpbWJlY2lsZSI6IHsic3luIjogWyJmb29sIiwgImlkaW90IiwgInNpbXBsZXRvbiJdLCAiYW50IjogWyJnZW5pdXMiLCAiaW50ZWxsZWN0dWFsIiwgInNhZ2UiXX0sICJ1bm9ydGhvZG94eSI6IHsic3luIjogWyJub25jb25mb3JtaXR5IiwgImRpc3NlbnQiLCAiaGV0ZXJvZG94eSJdLCAiYW50IjogWyJvcnRob2RveHkiLCAiY29uZm9ybWl0eSIsICJjb252ZW50aW9uIl19LCAiZWF2ZXNkcm9wcGluZyI6IHsic3luIjogWyJzcHlpbmciLCAic25vb3BpbmciLCAibGlzdGVuaW5nIGluIl0sICJhbnQiOiBbImlnbm9yaW5nIiwgInJlc3BlY3RpbmcgcHJpdmFjeSIsICJ0dXJuaW5nIGF3YXkiXX0sICJwaXRjaC1kYXJrIjogeyJzeW4iOiBbInBpdGNoLWJsYWNrIiwgImxpZ2h0bGVzcyIsICJ1bmxpdCJdLCAiYW50IjogWyJicmlnaHQiLCAiaWxsdW1pbmF0ZWQiLCAicmFkaWFudCJdfSwgInN0YWduYW50IjogeyJzeW4iOiBbInN0YXRpYyIsICJtb3Rpb25sZXNzIiwgImRvcm1hbnQiXSwgImFudCI6IFsiZmxvd2luZyIsICJkeW5hbWljIiwgInRocml2aW5nIl19LCAiYW5uaWhpbGF0aW9uIjogeyJzeW4iOiBbImRlc3RydWN0aW9uIiwgIm9ibGl0ZXJhdGlvbiIsICJleHRlcm1pbmF0aW9uIl0sICJhbnQiOiBbImNyZWF0aW9uIiwgInByZXNlcnZhdGlvbiIsICJzYWx2YXRpb24iXX0sICJtb25zdHJvdXMiOiB7InN5biI6IFsiYXRyb2Npb3VzIiwgImhvcnJpZmljIiwgImhlaW5vdXMiXSwgImFudCI6IFsiYWRtaXJhYmxlIiwgInZpcnR1b3VzIiwgImh1bWFuZSJdfSwgImRvbWluaW9uIjogeyJzeW4iOiBbImF1dGhvcml0eSIsICJzb3ZlcmVpZ250eSIsICJjb250cm9sIl0sICJhbnQiOiBbInN1Ymp1Z2F0aW9uIiwgInN1Ym1pc3Npb24iLCAiZGVwZW5kZW5jZSJdfSwgIm15cmlhZCI6IHsic3luIjogWyJjb3VudGxlc3MiLCAiaW5udW1lcmFibGUiLCAibXVsdGl0dWRlIl0sICJhbnQiOiBbImZldyIsICJzY2FyY2UiLCAiaGFuZGZ1bCJdfSwgInF1YWlsZWQiOiB7InN5biI6IFsiY293ZXJlZCIsICJmbGluY2hlZCIsICJyZWNvaWxlZCJdLCAiYW50IjogWyJzdG9vZCBmaXJtIiwgImZhY2VkIiwgImNvbmZyb250ZWQiXX0sICJmb3JtdWxhdGUiOiB7InN5biI6IFsiZGV2aXNlIiwgImNvbnN0cnVjdCIsICJhcnRpY3VsYXRlIl0sICJhbnQiOiBbImRpc21hbnRsZSIsICJkZXN0cm95IiwgIm9ic2N1cmUiXX0sICJlbnRhaWwiOiB7InN5biI6IFsiaW52b2x2ZSIsICJyZXF1aXJlIiwgIm5lY2Vzc2l0YXRlIl0sICJhbnQiOiBbImV4Y2x1ZGUiLCAicHJlY2x1ZGUiLCAicHJldmVudCJdfSwgInN0YXR1ZXNxdWUiOiB7InN5biI6IFsibWFqZXN0aWMiLCAiaW1wb3NpbmciLCAiZ3JhbmQiXSwgImFudCI6IFsiZGltaW51dGl2ZSIsICJzbGlnaHQiLCAiZnJhaWwiXX0sICJzdWJ0ZXJyYW5lYW4iOiB7InN5biI6IFsidW5kZXJncm91bmQiLCAiYnVyaWVkIiwgImhpZGRlbiJdLCAiYW50IjogWyJzdXJmYWNlIiwgImFib3ZlZ3JvdW5kIiwgImV4cG9zZWQiXX0sICJ1bmFsdGVyYWJsZSI6IHsic3luIjogWyJpbW11dGFibGUiLCAicGVybWFuZW50IiwgImZpeGVkIl0sICJhbnQiOiBbImNoYW5nZWFibGUiLCAiZmxleGlibGUiLCAibXV0YWJsZSJdfSwgImFubmloaWxhdGUiOiB7InN5biI6IFsiZGVzdHJveSIsICJvYmxpdGVyYXRlIiwgImVyYWRpY2F0ZSJdLCAiYW50IjogWyJjcmVhdGUiLCAiYnVpbGQiLCAicHJlc2VydmUiXX0sICJwcm9kaWdpZXMiOiB7InN5biI6IFsibWFydmVscyIsICJ3b25kZXJzIiwgInBoZW5vbWVuYSJdLCAiYW50IjogWyJmYWlsdXJlcyIsICJtZWRpb2NyaXR5IiwgImNvbW1vbnBsYWNlIl19LCAiYXBhdGh5IjogeyJzeW4iOiBbImluZGlmZmVyZW5jZSIsICJsZXRoYXJneSIsICJkZXRhY2htZW50Il0sICJhbnQiOiBbInBhc3Npb24iLCAiZW50aHVzaWFzbSIsICJjb25jZXJuIl19LCAic3B1cmlvdXMiOiB7InN5biI6IFsiZmFsc2UiLCAiY291bnRlcmZlaXQiLCAiYm9ndXMiXSwgImFudCI6IFsiZ2VudWluZSIsICJhdXRoZW50aWMiLCAibGVnaXRpbWF0ZSJdfSwgImluZmFsbGlibGUiOiB7InN5biI6IFsidW5lcnJpbmciLCAicGVyZmVjdCIsICJmbGF3bGVzcyJdLCAiYW50IjogWyJmYWxsaWJsZSIsICJpbXBlcmZlY3QiLCAidW5yZWxpYWJsZSJdfSwgInB5cmFtaWRhbCI6IHsic3luIjogWyJoaWVyYXJjaGljYWwiLCAidGllcmVkIiwgImxheWVyZWQiXSwgImFudCI6IFsiZmxhdCIsICJlZ2FsaXRhcmlhbiIsICJ1bmlmb3JtIl19LCAib2xpZ2FyY2hpY2FsIjogeyJzeW4iOiBbImVsaXRpc3QiLCAicGx1dG9jcmF0aWMiLCAiYXJpc3RvY3JhdGljIl0sICJhbnQiOiBbImRlbW9jcmF0aWMiLCAiZWdhbGl0YXJpYW4iLCAicG9wdWxpc3QiXX0sICJneXJvc2NvcGUiOiB7InN5biI6IFsic3RhYmlsaXplciIsICJiYWxhbmNpbmcgZGV2aWNlIiwgIm9yaWVudGF0aW9uIHRvb2wiXSwgImFudCI6IFsiZGVzdGFiaWxpemVyIiwgInVuYmFsYW5jaW5nIGZvcmNlIl19LCAiaXJyZWNvbmNpbGFibGUiOiB7InN5biI6IFsiaW5jb21wYXRpYmxlIiwgImNvbmZsaWN0aW5nIiwgIm9wcG9zZWQiXSwgImFudCI6IFsiY29tcGF0aWJsZSIsICJyZWNvbmNpbGFibGUiLCAiaGFybW9uaW91cyJdfSwgIm9saWdhcmNoeSI6IHsic3luIjogWyJwbHV0b2NyYWN5IiwgImFyaXN0b2NyYWN5IiwgImVsaXRlIHJ1bGUiXSwgImFudCI6IFsiZGVtb2NyYWN5IiwgImVnYWxpdGFyaWFuaXNtIiwgInJlcHVibGljIl19LCAiY29sbGVjdGl2aXNtIjogeyJzeW4iOiBbImNvbW11bmFsaXNtIiwgInNvY2lhbGlzbSIsICJzaGFyZWQgb3duZXJzaGlwIl0sICJhbnQiOiBbImluZGl2aWR1YWxpc20iLCAiY2FwaXRhbGlzbSIsICJwcml2YXRlIGVudGVycHJpc2UiXX0sICJleHByb3ByaWF0ZWQiOiB7InN5biI6IFsiY29uZmlzY2F0ZWQiLCAic2VpemVkIiwgImFwcHJvcHJpYXRlZCJdLCAiYW50IjogWyJyZXR1cm5lZCIsICJyZXN0b3JlZCIsICJjb21wZW5zYXRlZCJdfSwgInBlcnBldHVhdGUiOiB7InN5biI6IFsic3VzdGFpbiIsICJtYWludGFpbiIsICJwcm9sb25nIl0sICJhbnQiOiBbImVuZCIsICJ0ZXJtaW5hdGUiLCAiYWJvbGlzaCJdfSwgImNyaW1lc3RvcCI6IHsic3luIjogWyJzZWxmLWNlbnNvcnNoaXAiLCAidGhvdWdodC1ibG9ja2luZyIsICJtZW50YWwgc3VwcHJlc3Npb24iXSwgImFudCI6IFsiZnJlZSB0aG91Z2h0IiwgIm9wZW4gaW5xdWlyeSIsICJpbnRlbGxlY3R1YWwgZnJlZWRvbSJdfSwgImR1Y2tzcGVhayI6IHsic3luIjogWyJtaW5kbGVzcyBjaGF0dGVyIiwgImF1dG9tYXRpYyBzcGVlY2giLCAicHJvcGFnYW5kYSJdLCAiYW50IjogWyJ0aG91Z2h0ZnVsIHNwZWVjaCIsICJkZWxpYmVyYXRlIGxhbmd1YWdlIiwgImdlbnVpbmUgZXhwcmVzc2lvbiJdfSwgImRvdWJsZXBsdXN1bmdvb2QiOiB7InN5biI6IFsidGVycmlibGUiLCAiYWJob3JyZW50IiwgIndvcnN0IHBvc3NpYmxlIl0sICJhbnQiOiBbImV4Y2VsbGVudCIsICJiZXN0IiwgImRvdWJsZXBsdXNnb29kIl19LCAidW5wZXJzb24iOiB7InN5biI6IFsiZXJhc2VkIGluZGl2aWR1YWwiLCAiZGVsZXRlZCBwZXJzb24iLCAibm9uZW50aXR5Il0sICJhbnQiOiBbInJlY29nbml6ZWQgcGVyc29uIiwgImZ1bGwgY2l0aXplbiIsICJhY2tub3dsZWRnZWQgaW5kaXZpZHVhbCJdfSwgInRob3VnaHRjcmltZSI6IHsic3luIjogWyJkaXNzZW50IiwgIm1lbnRhbCByZWJlbGxpb24iLCAiaGV0ZXJvZG94eSJdLCAiYW50IjogWyJvcnRob2RveHkiLCAiY29uZm9ybWl0eSIsICJsb3lhbHR5Il19LCAiZmFjZWNyaW1lIjogeyJzeW4iOiBbImluYXBwcm9wcmlhdGUgZXhwcmVzc2lvbiIsICJ0ZWxsdGFsZSBsb29rIiwgInVuZ3VhcmRlZCBlbW90aW9uIl0sICJhbnQiOiBbImNvbnRyb2xsZWQgZXhwcmVzc2lvbiIsICJibGFuayBmYWNlIiwgIm1hc2tlZCBlbW90aW9uIl19LCAib3dubGlmZSI6IHsic3luIjogWyJpbmRpdmlkdWFsaXNtIiwgInByaXZhY3kiLCAicGVyc29uYWwgbGlmZSJdLCAiYW50IjogWyJjb2xsZWN0aXZpc20iLCAiY29uZm9ybWl0eSIsICJwdWJsaWMgbGlmZSJdfSwgInByb2xlZmVlZCI6IHsic3luIjogWyJtYXNzIGVudGVydGFpbm1lbnQiLCAiZGlzdHJhY3Rpb24iLCAicHJvcGFnYW5kYSJdLCAiYW50IjogWyJlbmxpZ2h0ZW5tZW50IiwgImVkdWNhdGlvbiIsICJnZW51aW5lIGN1bHR1cmUiXX0sICJqb3ljYW1wIjogeyJzeW4iOiBbImZvcmNlZCBsYWJvdXIgY2FtcCIsICJwcmlzb24iLCAiZGV0ZW50aW9uIGNlbnRyZSJdLCAiYW50IjogWyJmcmVlZG9tIiwgImxpYmVydHkiLCAic2FuY3R1YXJ5Il19LCAibWluaXRydWUiOiB7InN5biI6IFsicHJvcGFnYW5kYSBtaW5pc3RyeSIsICJ0cnV0aCBkaXN0b3J0aW9uIGJ1cmVhdSIsICJjZW5zb3JzaGlwIGRlcGFydG1lbnQiXSwgImFudCI6IFsiZnJlZSBwcmVzcyIsICJnZW51aW5lIHJlY29yZC1rZWVwaW5nIl19LCAibWluaXBheCI6IHsic3luIjogWyJ3YXIgbWluaXN0cnkiLCAiY29uZmxpY3QgZGVwYXJ0bWVudCIsICJtaWxpdGFyaXNtIGJ1cmVhdSJdLCAiYW50IjogWyJnZW51aW5lIHBlYWNlbWFraW5nIiwgImRpcGxvbWFjeSJdfSwgIm1pbmlsdXYiOiB7InN5biI6IFsidG9ydHVyZSBtaW5pc3RyeSIsICJlbmZvcmNlbWVudCBkZXBhcnRtZW50IiwgInNlY3JldCBwb2xpY2UiXSwgImFudCI6IFsiZ2VudWluZSBjb21wYXNzaW9uIiwgInJlYWwgbG92ZSIsICJjYXJlIl19LCAibWluaXBsZW50eSI6IHsic3luIjogWyJyYXRpb25pbmcgbWluaXN0cnkiLCAic2NhcmNpdHkgYnVyZWF1IiwgImRlcHJpdmF0aW9uIGRlcGFydG1lbnQiXSwgImFudCI6IFsiZ2VudWluZSBhYnVuZGFuY2UiLCAicmVhbCBwcm9zcGVyaXR5Il19LCAiZG91YmxldGhpbmsiOiB7InN5biI6IFsiY29nbml0aXZlIGRpc3NvbmFuY2UiLCAic2VsZi1kZWNlcHRpb24iLCAiY29udHJhZGljdG9yeSBiZWxpZWYiXSwgImFudCI6IFsiY29uc2lzdGVuY3kiLCAiaW50ZWdyaXR5IiwgImNsZWFyIHRoaW5raW5nIl19LCAiYmxhY2t3aGl0ZSI6IHsic3luIjogWyJkZWxpYmVyYXRlIGZhbHNlaG9vZCIsICJjb250cmFkaWN0aW9uIiwgIk9yd2VsbGlhbiByZXZlcnNhbCJdLCAiYW50IjogWyJob25lc3R5IiwgImNvbnNpc3RlbmN5IiwgImNsZWFyIHRydXRoIl19LCAiaW5oZXJlbnRseSI6IHsic3luIjogWyJpbnRyaW5zaWNhbGx5IiwgImZ1bmRhbWVudGFsbHkiLCAiZXNzZW50aWFsbHkiXSwgImFudCI6IFsic3VwZXJmaWNpYWxseSIsICJleHRlcm5hbGx5IiwgImluY2lkZW50YWxseSJdfSwgImZ1dGlsZSI6IHsic3luIjogWyJwb2ludGxlc3MiLCAiaG9wZWxlc3MiLCAiZnJ1aXRsZXNzIl0sICJhbnQiOiBbInByb2R1Y3RpdmUiLCAid29ydGh3aGlsZSIsICJlZmZlY3RpdmUiXX0sICJldmFuZXNjZW50IjogeyJzeW4iOiBbImZsZWV0aW5nIiwgInRyYW5zaWVudCIsICJlcGhlbWVyYWwiXSwgImFudCI6IFsicGVybWFuZW50IiwgImxhc3RpbmciLCAiZW5kdXJpbmciXX0sICJpZ25vbWlueSI6IHsic3luIjogWyJkaXNncmFjZSIsICJzaGFtZSIsICJkaXNob25vdXIiXSwgImFudCI6IFsiaG9ub3VyIiwgImdsb3J5IiwgImRpZ25pdHkiXX0sICJjYXRlZ29yaWNhbCI6IHsic3luIjogWyJhYnNvbHV0ZSIsICJ1bmNvbmRpdGlvbmFsIiwgImRlZmluaXRpdmUiXSwgImFudCI6IFsiY29uZGl0aW9uYWwiLCAicXVhbGlmaWVkIiwgInJlbGF0aXZlIl19LCAicmVjdGlmeSI6IHsic3luIjogWyJjb3JyZWN0IiwgImFtZW5kIiwgImZpeCJdLCAiYW50IjogWyJ3b3JzZW4iLCAiZGlzdG9ydCIsICJjb3JydXB0Il19LCAic2NlcHRpY2lzbSI6IHsic3luIjogWyJkb3VidCIsICJjeW5pY2lzbSIsICJkaXNiZWxpZWYiXSwgImFudCI6IFsiY3JlZHVsaXR5IiwgImZhaXRoIiwgInRydXN0Il19LCAibXVsdGlmYXJpb3VzIjogeyJzeW4iOiBbImRpdmVyc2UiLCAidmFyaWVkIiwgIm1hbmlmb2xkIl0sICJhbnQiOiBbInVuaWZvcm0iLCAic2luZ3VsYXIiLCAiaG9tb2dlbmVvdXMiXX0sICJwcm9sZXRhcmlhdCI6IHsic3luIjogWyJ3b3JraW5nIGNsYXNzIiwgImxhYm91cmVycyIsICJtYXNzZXMiXSwgImFudCI6IFsiYm91cmdlb2lzaWUiLCAiZWxpdGUiLCAicnVsaW5nIGNsYXNzIl19LCAidmVyc2lmaWNhdG9yIjogeyJzeW4iOiBbInZlcnNlIG1hY2hpbmUiLCAicG9ldHJ5IGF1dG9tYXRvbiIsICJtZWNoYW5pY2FsIHJoeW1lciJdLCAiYW50IjogWyJodW1hbiBwb2V0IiwgImF1dGhlbnRpYyBhcnRpc3QiLCAiZ2VudWluZSBjcmVhdG9yIl19LCAiZGVwaWN0IjogeyJzeW4iOiBbInBvcnRyYXkiLCAicmVwcmVzZW50IiwgImlsbHVzdHJhdGUiXSwgImFudCI6IFsiY29uY2VhbCIsICJtaXNyZXByZXNlbnQiLCAiZGlzdG9ydCJdfSwgInNhbmd1aW5lIjogeyJzeW4iOiBbIm9wdGltaXN0aWMiLCAiaG9wZWZ1bCIsICJwb3NpdGl2ZSJdLCAiYW50IjogWyJwZXNzaW1pc3RpYyIsICJkZXNwb25kZW50IiwgImdsb29teSJdfSwgInBsYXN0ZXJlZCI6IHsic3luIjogWyJjb3ZlcmVkIiwgImNvYXRlZCIsICJzbW90aGVyZWQiXSwgImFudCI6IFsiYmFyZSIsICJ1bmNvdmVyZWQiLCAidW5hZG9ybmVkIl19LCAiZml0ZnVsbHkiOiB7InN5biI6IFsiaXJyZWd1bGFybHkiLCAic3BvcmFkaWNhbGx5IiwgImludGVybWl0dGVudGx5Il0sICJhbnQiOiBbInN0ZWFkaWx5IiwgImNvbnNpc3RlbnRseSIsICJjb250aW51b3VzbHkiXX0sICJzbm9vcGluZyI6IHsic3luIjogWyJwcnlpbmciLCAic3B5aW5nIiwgIm5vc2luZyBhcm91bmQiXSwgImFudCI6IFsicmVzcGVjdGluZyBwcml2YWN5IiwgImlnbm9yaW5nIiwgIm1pbmRpbmcgb25lJ3MgYnVzaW5lc3MiXX0sICJ2YXJpY29zZSI6IHsic3luIjogWyJzd29sbGVuIiwgImRpbGF0ZWQiLCAiZW5sYXJnZWQiXSwgImFudCI6IFsiaGVhbHRoeSIsICJub3JtYWwiLCAiY29uc3RyaWN0ZWQiXX0sICJmcm93c3kiOiB7InN5biI6IFsibXVzdHkiLCAidW5rZW1wdCIsICJzaGFiYnkiXSwgImFudCI6IFsiZnJlc2giLCAibmVhdCIsICJ3ZWxsLWdyb29tZWQiXX0sICJmdXJ0aXZlbHkiOiB7InN5biI6IFsic3RlYWx0aGlseSIsICJzbHlseSIsICJjb3ZlcnRseSJdLCAiYW50IjogWyJvcGVubHkiLCAiYm9sZGx5IiwgInRyYW5zcGFyZW50bHkiXX0sICJhcmNoYWljIjogeyJzeW4iOiBbImFuY2llbnQiLCAib2Jzb2xldGUiLCAiYW50aXF1YXRlZCJdLCAiYW50IjogWyJtb2Rlcm4iLCAiY29udGVtcG9yYXJ5IiwgImN1cnJlbnQiXX0sICJkZWNpc2l2ZSI6IHsic3luIjogWyJyZXNvbHV0ZSIsICJkZXRlcm1pbmVkIiwgImZpcm0iXSwgImFudCI6IFsiaW5kZWNpc2l2ZSIsICJoZXNpdGFudCIsICJ3YXZlcmluZyJdfSwgImhlbHBsZXNzbmVzcyI6IHsic3luIjogWyJwb3dlcmxlc3NuZXNzIiwgInZ1bG5lcmFiaWxpdHkiLCAiaW1wb3RlbmNlIl0sICJhbnQiOiBbImVtcG93ZXJtZW50IiwgImNhcGFiaWxpdHkiLCAic3RyZW5ndGgiXX0sICJzdHJpZGVudCI6IHsic3luIjogWyJoYXJzaCIsICJzaHJpbGwiLCAiZ3JhdGluZyJdLCAiYW50IjogWyJnZW50bGUiLCAibWVsb2Rpb3VzIiwgInNvZnQiXX0sICJib296aW5lc3MiOiB7InN5biI6IFsidGlwc2luZXNzIiwgImluZWJyaWF0aW9uIiwgImludG94aWNhdGlvbiJdLCAiYW50IjogWyJzb2JyaWV0eSIsICJjbGFyaXR5IiwgImFic3RpbmVuY2UiXX0sICJzaGVlciI6IHsic3luIjogWyJ1dHRlciIsICJhYnNvbHV0ZSIsICJjb21wbGV0ZSJdLCAiYW50IjogWyJwYXJ0aWFsIiwgIm1vZGVyYXRlIiwgInF1YWxpZmllZCJdfSwgIm5lYnVsb3VzIjogeyJzeW4iOiBbInZhZ3VlIiwgImhhenkiLCAiaW5kaXN0aW5jdCJdLCAiYW50IjogWyJjbGVhciIsICJwcmVjaXNlIiwgImRlZmluaXRlIl19fQ=="));
 
-// ============================================================
-// REST OF THE JAVASCRIPT (DO NOT MODIFY)
-// ============================================================
+// Safe localStorage wrapper (Safari blocks it for file:// URLs)
 const LS = {
   get(key, fallback) {
     try { const v = localStorage.getItem(key); return v !== null ? v : fallback; }
@@ -2193,10 +2109,13 @@ const LS = {
   }
 };
 
+// ============================================================
+// GROUPS: split 102 words into 10 groups
+// ============================================================
 function buildGroups() {
   const n = VOCAB.length, g = 10;
   const base = Math.floor(n / g);
-  const extra = n % g;
+  const extra = n % g; // first `extra` groups get base+1
   const groups = [];
   let i = 0;
   for (let k = 0; k < g; k++) {
@@ -2206,10 +2125,12 @@ function buildGroups() {
   }
   return groups;
 }
-
 const GROUPS = buildGroups();
 const NUM_GROUPS = GROUPS.length;
 
+// ============================================================
+// STATE
+// ============================================================
 const S = {
   gIdx: 0,
   wIdx: 0,
@@ -2221,9 +2142,16 @@ const S = {
   sqQuiz: null,
 };
 
-function saveStarred() { LS.set('wtb_starred', JSON.stringify([...S.starred])); }
-function saveSentences() { LS.set('wtb_sentences', JSON.stringify(S.sentences)); }
+function saveStarred() {
+  LS.set('wtb_starred', JSON.stringify([...S.starred]));
+}
+function saveSentences() {
+  LS.set('wtb_sentences', JSON.stringify(S.sentences));
+}
 
+// ============================================================
+// UTILITIES
+// ============================================================
 function escReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 function highlightWord(text, word) {
@@ -2278,39 +2206,43 @@ function speak(word) {
   }
 }
 
+// ============================================================
+// RENDER
+// ============================================================
 function render() {
-  if (!GROUPS.length || !GROUPS[S.gIdx] || !GROUPS[S.gIdx][S.wIdx]) {
-    console.error('No data available');
-    return;
-  }
-  
   const group = GROUPS[S.gIdx];
   const entry = group[S.wIdx];
   const isStarred = S.starred.has(entry.word);
 
+  // Group nav
   document.getElementById('groupNumDisplay').textContent = (S.gIdx + 1) + ' / ' + NUM_GROUPS;
   document.getElementById('prevGroupBtn').disabled = S.gIdx === 0;
   document.getElementById('nextGroupBtn').disabled = S.gIdx === NUM_GROUPS - 1;
   renderGroupDots();
 
+  // Word nav
   document.getElementById('wordNumDisplay').textContent = S.wIdx + 1;
   document.getElementById('groupSizeDisplay').textContent = group.length;
   document.getElementById('prevWordBtn').disabled = S.wIdx === 0;
   document.getElementById('nextWordBtn').disabled = S.wIdx === group.length - 1;
 
+  // Star button
   const sb = document.getElementById('starBtn');
   sb.textContent = isStarred ? '★' : '☆';
   sb.classList.toggle('starred', isStarred);
 
+  // Word card
   document.getElementById('wordDisplay').textContent = entry.word;
   document.getElementById('pronDisplay').textContent = entry.pron;
   document.getElementById('chapterBadge').textContent = chapterShort(entry.chapter);
   document.getElementById('defEn').textContent = entry.def_en;
   document.getElementById('defZh').textContent = entry.def_zh;
 
+  // Sentence tabs
   document.getElementById('tabNovel').classList.toggle('active', S.sentTab === 0);
   document.getElementById('tabAI').classList.toggle('active', S.sentTab === 1);
 
+  // Sentence content
   let sentEn, sentZh, sentSource;
   if (S.sentTab === 0) {
     sentEn = highlightWord(entry.quote_en, entry.word);
@@ -2325,19 +2257,13 @@ function render() {
   document.getElementById('sentZh').textContent = sentZh;
   document.getElementById('sentSource').innerHTML = sentSource;
 
-  const sa = SYNAN[entry.word] || { syn: [], ant: [] };
-  document.getElementById('synChips').innerHTML = sa.syn.map(w => `<span class="synan-chip syn">${w}</span>`).join('');
-  document.getElementById('antChips').innerHTML = sa.ant.map(w => `<span class="synan-chip ant">${w}</span>`).join('');
-  document.getElementById('synanBlock').style.display = (sa.syn.length || sa.ant.length) ? 'flex' : 'none';
-
-  document.getElementById('tabSpell').classList.toggle('active', S.sentTab === 2);
-  document.getElementById('spellContent').style.display = S.sentTab === 2 ? 'block' : 'none';
-  document.getElementById('sentenceContent').style.display = S.sentTab === 2 ? 'none' : 'block';
-  if (S.sentTab === 2) renderSpell();
-
+  // Starred section
   renderStarredSection();
+
+  // My sentences for this word
   renderMySentences();
 
+  // Quiz header subtitle
   document.getElementById('quizStartDesc').textContent =
     'Test yourself on Group ' + (S.gIdx + 1) + '. Fill in the missing words from Orwell\'s own sentences.';
   const done = S.quizDone[S.gIdx];
@@ -2349,6 +2275,7 @@ function render() {
     badge.style.display = 'none';
   }
 
+  // Starred header count
   const cnt = S.starred.size;
   document.getElementById('starredCount').textContent = cnt;
   document.getElementById('starredCountHeader').textContent = cnt;
@@ -2386,15 +2313,188 @@ function renderStarredSection() {
   renderStarredQuizStart();
 }
 
+// ============================================================
+// NAVIGATION
+// ============================================================
+function goGroup(idx) {
+  S.gIdx = Math.max(0, Math.min(NUM_GROUPS - 1, idx));
+  S.wIdx = 0;
+  S.sentTab = 0;
+  resetQuizUI();
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goWord(idx) {
+  const group = GROUPS[S.gIdx];
+  S.wIdx = Math.max(0, Math.min(group.length - 1, idx));
+  S.sentTab = 0;
+  render();
+}
+
+function navigateToWord(vocabIdx) {
+  // Find which group and word position
+  let cumulative = 0;
+  for (let g = 0; g < NUM_GROUPS; g++) {
+    if (vocabIdx < cumulative + GROUPS[g].length) {
+      S.gIdx = g;
+      S.wIdx = vocabIdx - cumulative;
+      S.sentTab = 0;
+      resetQuizUI();
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    cumulative += GROUPS[g].length;
+  }
+}
+
+// ============================================================
+// STAR
+// ============================================================
+function toggleStar() {
+  const word = GROUPS[S.gIdx][S.wIdx].word;
+  if (S.starred.has(word)) {
+    S.starred.delete(word);
+    toast('Removed from starred', '');
+  } else {
+    S.starred.add(word);
+    toast('⭐ Starred: ' + word, 'gold');
+  }
+  saveStarred();
+  render();
+}
+
+// ============================================================
+// QUIZ
+// ============================================================
+function resetQuizUI() {
+  S.quiz = null;
+  document.getElementById('quizBody').classList.remove('open');
+  document.getElementById('quizToggleIcon').classList.remove('open');
+  document.getElementById('quizStartArea').style.display = 'block';
+  document.getElementById('quizQuestionArea').style.display = 'none';
+  document.getElementById('quizResult').style.display = 'none';
+}
+
+function startQuiz() {
+  const group = GROUPS[S.gIdx];
+  // Build question list: one per word, shuffled order
+  const questions = shuffle(group.map((entry, i) => ({ entry, groupIdx: i })));
+  S.quiz = {
+    questions,
+    qIdx: 0,
+    score: 0,
+    answered: false,
+  };
+  document.getElementById('quizStartArea').style.display = 'none';
+  document.getElementById('quizQuestionArea').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = S.quiz;
+  const { entry } = q.questions[q.qIdx];
+  const total = q.questions.length;
+  const group = GROUPS[S.gIdx];
+
+  // Progress
+  document.getElementById('quizQNum').textContent = 'Question ' + (q.qIdx + 1) + ' / ' + total;
+  document.getElementById('quizProgressFill').style.width = ((q.qIdx / total) * 100) + '%';
+
+  // Sentence with blank
+  document.getElementById('quizSentence').innerHTML = blankWord(entry.quote_en, entry.word);
+
+  // Choices: correct + 3 distractors from group
+  const distractors = shuffle(group.map(w => w.word).filter(w => w !== entry.word)).slice(0, 3);
+  const choices = shuffle([entry.word, ...distractors]);
+
+  const labels = ['A', 'B', 'C', 'D'];
+  const container = document.getElementById('quizChoices');
+  container.innerHTML = '';
+  choices.forEach((word, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = '<span class="choice-label">' + labels[i] + '</span>' + word;
+    btn.dataset.word = word;
+    btn.addEventListener('click', () => checkAnswer(word, entry.word));
+    container.appendChild(btn);
+  });
+
+  // Reset feedback
+  const fb = document.getElementById('quizFeedback');
+  fb.style.display = 'none';
+  fb.className = 'quiz-feedback';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  q.answered = false;
+}
+
+function checkAnswer(chosen, correct) {
+  if (S.quiz.answered) return;
+  S.quiz.answered = true;
+
+  const btns = document.querySelectorAll('.choice-btn');
+  btns.forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.word === correct) btn.classList.add('correct');
+    else if (btn.dataset.word === chosen && chosen !== correct) btn.classList.add('wrong');
+  });
+
+  const fb = document.getElementById('quizFeedback');
+  if (chosen === correct) {
+    S.quiz.score++;
+    fb.className = 'quiz-feedback correct-fb';
+    fb.textContent = '✓ Correct! "' + correct + '" is right.';
+  } else {
+    fb.className = 'quiz-feedback wrong-fb';
+    fb.textContent = '✗ The answer is "' + correct + '".';
+  }
+  fb.style.display = 'block';
+
+  const nextBtn = document.getElementById('quizNextBtn');
+  const isLast = S.quiz.qIdx === S.quiz.questions.length - 1;
+  nextBtn.textContent = isLast ? 'See Results →' : 'Next Question →';
+  nextBtn.style.display = 'inline-block';
+}
+
+function quizNext() {
+  const q = S.quiz;
+  const total = q.questions.length;
+  if (q.qIdx < total - 1) {
+    q.qIdx++;
+    renderQuestion();
+  } else {
+    // Show results
+    const pct = Math.round((q.score / total) * 100);
+    const emoji = pct >= 80 ? '🎉' : pct >= 60 ? '👍' : '📚';
+    document.getElementById('quizQuestionArea').style.display = 'none';
+    document.getElementById('quizResult').style.display = 'block';
+    document.getElementById('quizProgressFill').style.width = '100%';
+    document.getElementById('quizResultScore').textContent = emoji + ' ' + q.score + ' / ' + total;
+    document.getElementById('quizResultLabel').textContent =
+      pct >= 80 ? 'Excellent! Keep it up.' :
+      pct >= 60 ? 'Good work! Review the ones you missed.' :
+                  'Keep studying — you\'ll get there!';
+    S.quizDone[S.gIdx] = { score: q.score, total };
+    render();
+  }
+}
+
+// ============================================================
+// MY SENTENCES
+// ============================================================
 function renderMySentences() {
   const word = GROUPS[S.gIdx][S.wIdx].word;
   const sents = S.sentences[word] || [];
   const max = 3;
 
+  // Counter
   const counter = document.getElementById('mySentCounter');
   counter.textContent = sents.length + ' / ' + max;
   counter.className = 'my-sent-counter' + (sents.length >= max ? ' full' : '');
 
+  // Input: disable when full
   const input = document.getElementById('mySentInput');
   const saveBtn = document.getElementById('mySentSaveBtn');
   input.disabled = sents.length >= max;
@@ -2403,6 +2503,7 @@ function renderMySentences() {
     ? 'Maximum 3 sentences saved ✓'
     : 'Write your own sentence using "' + word + '"…';
 
+  // List
   const list = document.getElementById('mySentList');
   list.innerHTML = '';
   sents.forEach((text, i) => {
@@ -2428,6 +2529,7 @@ function addSentence() {
   if (!text) { toast('Please write a sentence first.', ''); return; }
   if (!S.sentences[word]) S.sentences[word] = [];
   if (S.sentences[word].length >= 3) { toast('Max 3 sentences per word.', ''); return; }
+  // Encourage the word to appear in the sentence
   const wordLower = word.toLowerCase();
   const rootLower = wordLower.substring(0, Math.max(4, Math.floor(wordLower.length * 0.72)));
   if (!text.toLowerCase().includes(rootLower)) {
@@ -2448,6 +2550,9 @@ function deleteSentence(word, idx) {
   renderMySentences();
 }
 
+// ============================================================
+// STARRED QUIZ
+// ============================================================
 function renderStarredQuizStart() {
   const count = S.starred.size;
   const canStart = count >= 5;
@@ -2466,6 +2571,7 @@ function startStarredQuiz() {
   const starredWords = [...S.starred];
   if (starredWords.length < 5) return;
 
+  // Build questions from starred vocab entries
   const entries = starredWords
     .map(w => VOCAB.find(v => v.word === w))
     .filter(Boolean);
@@ -2488,6 +2594,7 @@ function renderSQQuestion() {
   document.getElementById('sqProgressFill').style.width = ((q.qIdx / total) * 100) + '%';
   document.getElementById('sqSentence').innerHTML = blankWord(entry.quote_en, entry.word);
 
+  // 3 distractors: prefer from starred pool, fill from VOCAB if needed
   const pool = [...S.starred].filter(w => w !== entry.word);
   const starredDistractors = shuffle(pool).slice(0, 3);
   const needed = 3 - starredDistractors.length;
@@ -2563,362 +2670,34 @@ function sqNext() {
   }
 }
 
-function goGroup(idx) {
-  S.gIdx = Math.max(0, Math.min(NUM_GROUPS - 1, idx));
-  S.wIdx = 0;
-  S.sentTab = 0;
-  resetQuizUI();
-  render();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function goWord(idx) {
-  const group = GROUPS[S.gIdx];
-  S.wIdx = Math.max(0, Math.min(group.length - 1, idx));
-  S.sentTab = 0;
-  render();
-}
-
-function navigateToWord(vocabIdx) {
-  let cumulative = 0;
-  for (let g = 0; g < NUM_GROUPS; g++) {
-    if (vocabIdx < cumulative + GROUPS[g].length) {
-      S.gIdx = g;
-      S.wIdx = vocabIdx - cumulative;
-      S.sentTab = 0;
-      resetQuizUI();
-      render();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    cumulative += GROUPS[g].length;
-  }
-}
-
-function toggleStar() {
-  const word = GROUPS[S.gIdx][S.wIdx].word;
-  if (S.starred.has(word)) {
-    S.starred.delete(word);
-    toast('Removed from starred', '');
-  } else {
-    S.starred.add(word);
-    toast('⭐ Starred: ' + word, 'gold');
-  }
-  saveStarred();
-  render();
-}
-
-function resetQuizUI() {
-  S.quiz = null;
-  document.getElementById('quizBody').classList.remove('open');
-  document.getElementById('quizToggleIcon').classList.remove('open');
-  document.getElementById('quizStartArea').style.display = 'block';
-  document.getElementById('quizQuestionArea').style.display = 'none';
-  document.getElementById('quizResult').style.display = 'none';
-}
-
-function startQuiz() {
-  const group = GROUPS[S.gIdx];
-  const questions = shuffle(group.map((entry, i) => ({ entry, groupIdx: i })));
-  S.quiz = {
-    questions,
-    qIdx: 0,
-    phase: 1,
-    score: 0,
-    spellScore: 0,
-    answered: false,
-  };
-  document.getElementById('quizStartArea').style.display = 'none';
-  document.getElementById('quizQuestionArea').style.display = 'block';
-  document.getElementById('quizResult').style.display = 'none';
-  renderQuestion();
-}
-
-function renderQuestion() {
-  const q = S.quiz;
-  const { entry } = q.questions[q.qIdx];
-  const total = q.questions.length;
-  const step = q.qIdx * 2 + (q.phase - 1);
-  const totalSteps = total * 2;
-
-  document.getElementById('quizQNum').textContent =
-    'Word ' + (q.qIdx + 1) + ' / ' + total + ' · ' + (q.phase === 1 ? 'Part 1: Choose' : 'Part 2: Spell');
-  document.getElementById('quizProgressFill').style.width = ((step / totalSteps) * 100) + '%';
-
-  document.getElementById('quizNextBtn').style.display = 'none';
-
-  if (q.phase === 1) {
-    document.getElementById('quizPhase1').style.display = 'block';
-    document.getElementById('quizPhase2').style.display = 'none';
-
-    document.getElementById('quizSentence').innerHTML = blankWord(entry.quote_en, entry.word);
-
-    const distractors = shuffle(group.map(w => w.word).filter(w => w !== entry.word)).slice(0, 3);
-    const choices = shuffle([entry.word, ...distractors]);
-    const labels = ['A', 'B', 'C', 'D'];
-    const container = document.getElementById('quizChoices');
-    container.innerHTML = '';
-    choices.forEach((word, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'choice-btn';
-      btn.innerHTML = '<span class="choice-label">' + labels[i] + '</span>' + word;
-      btn.dataset.word = word;
-      btn.addEventListener('click', () => checkAnswer(word, entry.word));
-      container.appendChild(btn);
-    });
-
-    const fb = document.getElementById('quizFeedback');
-    fb.style.display = 'none';
-    fb.className = 'quiz-feedback';
-    q.answered = false;
-
-  } else {
-    document.getElementById('quizPhase1').style.display = 'none';
-    document.getElementById('quizPhase2').style.display = 'block';
-    renderQuizSpell(entry);
-  }
-}
-
-function renderQuizSpell(entry) {
-  const word = entry.word.toLowerCase();
-  document.getElementById('qSpellSentence').innerHTML = highlightWord(entry.ex_en, entry.word)
-    .replace(/<span class="hl">([^<]+)<\/span>/gi, '<span class="hl">_____<\/span>');
-
-  const boxes = document.getElementById('qSpellBoxes');
-  boxes.innerHTML = '';
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === '-') {
-      const sep = document.createElement('div');
-      sep.style.cssText = 'width:10px;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-weight:900;font-size:1.2rem;';
-      sep.textContent = '-';
-      boxes.appendChild(sep);
-    } else {
-      const b = document.createElement('div');
-      b.className = 'spell-box' + (i === 0 ? ' cursor' : '');
-      b.dataset.idx = i;
-      boxes.appendChild(b);
-    }
-  }
-  const inp = document.getElementById('qSpellInput');
-  inp.value = '';
-  inp.placeholder = word.length + ' letters';
-  const fb = document.getElementById('qSpellFeedback');
-  fb.style.display = 'none';
-  fb.className = 'quiz-feedback';
-  document.getElementById('qSpellRevealBtn').style.display = 'block';
-  updateQSpellBoxes('');
-}
-
-function updateQSpellBoxes(typed) {
-  const entry = S.quiz.questions[S.quiz.qIdx].entry;
-  const word = entry.word.toLowerCase().replace(/-/g, '');
-  const t = typed.toLowerCase();
-  const allBoxes = document.querySelectorAll('#qSpellBoxes .spell-box');
-  allBoxes.forEach((b, i) => {
-    b.className = 'spell-box';
-    if (i < t.length) { b.textContent = t[i]; b.classList.add('filled'); }
-    else { b.textContent = ''; if (i === t.length) b.classList.add('cursor'); }
-  });
-}
-
-function checkQuizSpelling() {
-  const entry = S.quiz.questions[S.quiz.qIdx].entry;
-  const word = entry.word.toLowerCase();
-  const typed = document.getElementById('qSpellInput').value.trim().toLowerCase();
-  const fb = document.getElementById('qSpellFeedback');
-  if (!typed) { toast('Type the word first!', ''); return; }
-
-  const allBoxes = document.querySelectorAll('#qSpellBoxes .spell-box');
-  const wordClean = word.replace(/-/g, '');
-  const typedClean = typed.replace(/-/g, '');
-
-  if (typedClean === wordClean) {
-    S.quiz.spellScore++;
-    allBoxes.forEach(b => { b.className = 'spell-box correct'; });
-    fb.className = 'quiz-feedback correct-fb';
-    fb.textContent = '✓ Perfect spelling!';
-    toast('✓ Spelled correctly!', 'good');
-  } else {
-    const wordArr = wordClean.split('');
-    allBoxes.forEach((b, i) => {
-      b.className = 'spell-box';
-      const ch = typedClean[i] || '';
-      b.textContent = ch || wordArr[i];
-      if (!ch) b.classList.add('wrong');
-      else if (ch === wordArr[i]) b.classList.add('correct');
-      else { b.classList.add('wrong'); b.textContent = ch; }
-    });
-    fb.className = 'quiz-feedback wrong-fb';
-    fb.textContent = '✗ The word is "' + entry.word + '".';
-  }
-  fb.style.display = 'block';
-  document.getElementById('qSpellRevealBtn').style.display = 'none';
-  const isLast = S.quiz.qIdx === S.quiz.questions.length - 1;
-  const nextBtn = document.getElementById('quizNextBtn');
-  nextBtn.textContent = isLast ? 'See Results →' : 'Next Word →';
-  nextBtn.style.display = 'inline-block';
-}
-
-function checkAnswer(chosen, correct) {
-  if (S.quiz.answered) return;
-  S.quiz.answered = true;
-
-  const btns = document.querySelectorAll('.choice-btn');
-  btns.forEach(btn => {
-    btn.disabled = true;
-    if (btn.dataset.word === correct) btn.classList.add('correct');
-    else if (btn.dataset.word === chosen && chosen !== correct) btn.classList.add('wrong');
-  });
-
-  const fb = document.getElementById('quizFeedback');
-  if (chosen === correct) {
-    S.quiz.score++;
-    fb.className = 'quiz-feedback correct-fb';
-    fb.textContent = '✓ Correct! "' + correct + '" is right.';
-  } else {
-    fb.className = 'quiz-feedback wrong-fb';
-    fb.textContent = '✗ The answer is "' + correct + '".';
-  }
-  fb.style.display = 'block';
-
-  const nextBtn = document.getElementById('quizNextBtn');
-  nextBtn.textContent = 'Next: Spell It →';
-  nextBtn.style.display = 'inline-block';
-}
-
-function quizNext() {
-  const q = S.quiz;
-  const total = q.questions.length;
-  if (q.phase === 1) {
-    q.phase = 2;
-    renderQuestion();
-  } else if (q.qIdx < total - 1) {
-    q.qIdx++;
-    q.phase = 1;
-    renderQuestion();
-  } else {
-    const mcPct = Math.round((q.score / total) * 100);
-    const spPct = Math.round((q.spellScore / total) * 100);
-    const combined = q.score + q.spellScore;
-    const combMax = total * 2;
-    const emoji = mcPct >= 80 ? '🎉' : mcPct >= 60 ? '👍' : '📚';
-    document.getElementById('quizQuestionArea').style.display = 'none';
-    document.getElementById('quizResult').style.display = 'block';
-    document.getElementById('quizProgressFill').style.width = '100%';
-    document.getElementById('quizResultScore').textContent = emoji + ' ' + combined + ' / ' + combMax;
-    document.getElementById('quizResultLabel').textContent =
-      '📖 Choose: ' + q.score + '/' + total + '  ·  ✏️ Spell: ' + q.spellScore + '/' + total + (
-        mcPct >= 80 && spPct >= 80 ? '  —  Outstanding!' :
-        mcPct >= 60 ? '  —  Good work! Review the ones you missed.' :
-        '  —  Keep studying — you\'ll get there!'
-      );
-    S.quizDone[S.gIdx] = { score: combined, total: combMax };
-    render();
-  }
-}
-
-function renderSpell() {
-  const entry = GROUPS[S.gIdx][S.wIdx];
-  const word = entry.word.toLowerCase();
-
-  document.getElementById('spellSentence').innerHTML = highlightWord(entry.ex_en, entry.word)
-    .replace(/<span class="hl">([^<]+)<\/span>/gi, '<span class="hl">_____</span>');
-
-  const boxes = document.getElementById('spellBoxes');
-  boxes.innerHTML = '';
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === '-') {
-      const sep = document.createElement('div');
-      sep.style.cssText = 'width:10px;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-weight:900;font-size:1.2rem;';
-      sep.textContent = '-';
-      boxes.appendChild(sep);
-    } else {
-      const b = document.createElement('div');
-      b.className = 'spell-box' + (i === 0 ? ' cursor' : '');
-      b.dataset.idx = i;
-      boxes.appendChild(b);
-    }
-  }
-
-  const inp = document.getElementById('spellInput');
-  inp.value = '';
-  inp.placeholder = word.length + ' letters';
-  document.getElementById('spellFeedback').style.display = 'none';
-  document.getElementById('spellFeedback').className = 'spell-feedback';
-  document.getElementById('spellRevealBtn').style.display = 'block';
-  updateBoxes('');
-}
-
-function updateBoxes(typed) {
-  const entry = GROUPS[S.gIdx][S.wIdx];
-  const word = entry.word.toLowerCase().replace(/-/g, '');
-  const t = typed.toLowerCase();
-  const allBoxes = document.querySelectorAll('.spell-box');
-
-  allBoxes.forEach((b, i) => {
-    b.className = 'spell-box';
-    if (i < t.length) {
-      b.textContent = t[i];
-      b.classList.add('filled');
-    } else {
-      b.textContent = '';
-      if (i === t.length) b.classList.add('cursor');
-    }
-  });
-}
-
-function checkSpelling() {
-  const entry = GROUPS[S.gIdx][S.wIdx];
-  const word = entry.word.toLowerCase();
-  const typed = document.getElementById('spellInput').value.trim().toLowerCase();
-  const fb = document.getElementById('spellFeedback');
-
-  if (!typed) { toast('Type the word first!', ''); return; }
-
-  const allBoxes = document.querySelectorAll('.spell-box');
-  const wordClean = word.replace(/-/g, '');
-  const typedClean = typed.replace(/-/g, '');
-
-  if (typedClean === wordClean) {
-    allBoxes.forEach(b => { b.className = 'spell-box correct'; b.textContent = b.textContent || ''; });
-    fb.className = 'spell-feedback ok';
-    fb.textContent = '✓ Correct! You spelled "' + entry.word + '" perfectly.';
-    toast('✓ Spelled correctly!', 'good');
-  } else {
-    const wordArr = wordClean.split('');
-    allBoxes.forEach((b, i) => {
-      b.className = 'spell-box';
-      const ch = typedClean[i] || '';
-      b.textContent = ch || wordArr[i];
-      if (!ch)          b.classList.add('wrong');
-      else if (ch === wordArr[i]) b.classList.add('correct');
-      else              { b.classList.add('wrong'); b.textContent = ch; }
-    });
-    fb.className = 'spell-feedback err';
-    fb.textContent = '✗ Not quite. The word is "' + entry.word + '".';
-  }
-  fb.style.display = 'block';
-  document.getElementById('spellRevealBtn').style.display = 'none';
-}
-
+// ============================================================
+// EVENTS
+// ============================================================
 document.getElementById('prevGroupBtn').addEventListener('click', () => goGroup(S.gIdx - 1));
 document.getElementById('nextGroupBtn').addEventListener('click', () => goGroup(S.gIdx + 1));
 document.getElementById('prevWordBtn').addEventListener('click', () => goWord(S.wIdx - 1));
 document.getElementById('nextWordBtn').addEventListener('click', () => goWord(S.wIdx + 1));
+
 document.getElementById('starBtn').addEventListener('click', toggleStar);
 document.getElementById('speakBtn').addEventListener('click', () => speak(GROUPS[S.gIdx][S.wIdx].word));
 document.getElementById('speakBtn2').addEventListener('click', () => speak(GROUPS[S.gIdx][S.wIdx].word));
+
 document.getElementById('tabNovel').addEventListener('click', () => { S.sentTab = 0; render(); });
 document.getElementById('tabAI').addEventListener('click',   () => { S.sentTab = 1; render(); });
-document.getElementById('tabSpell').addEventListener('click', () => { S.sentTab = 2; render(); });
+
+// My Sentences
 document.getElementById('mySentSaveBtn').addEventListener('click', addSentence);
 document.getElementById('mySentInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') { e.preventDefault(); addSentence(); }
 });
+
+// Starred Quiz
 document.getElementById('sqStartBtn').addEventListener('click', startStarredQuiz);
 document.getElementById('sqNextBtn').addEventListener('click', sqNext);
 document.getElementById('sqRetryBtn').addEventListener('click', startStarredQuiz);
 document.getElementById('sqResetBtn').addEventListener('click', renderStarredQuizStart);
+
+// Quiz accordion
 document.getElementById('quizHeader').addEventListener('click', () => {
   const body = document.getElementById('quizBody');
   const icon = document.getElementById('quizToggleIcon');
@@ -2930,28 +2709,6 @@ document.getElementById('quizSkipBtn').addEventListener('click', () => {
   document.getElementById('quizBody').classList.remove('open');
   document.getElementById('quizToggleIcon').classList.remove('open');
 });
-document.getElementById('qSpellInput').addEventListener('input', e => {
-  updateQSpellBoxes(e.target.value);
-});
-document.getElementById('qSpellInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') { e.preventDefault(); checkQuizSpelling(); }
-});
-document.getElementById('qSpellCheckBtn').addEventListener('click', checkQuizSpelling);
-document.getElementById('qSpellRevealBtn').addEventListener('click', () => {
-  const entry = S.quiz.questions[S.quiz.qIdx].entry;
-  const fb = document.getElementById('qSpellFeedback');
-  fb.className = 'quiz-feedback wrong-fb';
-  fb.textContent = 'The word is "' + entry.word + '". Try again next time!';
-  fb.style.display = 'block';
-  document.getElementById('qSpellRevealBtn').style.display = 'none';
-  const allBoxes = document.querySelectorAll('#qSpellBoxes .spell-box');
-  const wordClean = entry.word.toLowerCase().replace(/-/g,'');
-  allBoxes.forEach((b, i) => { b.className = 'spell-box wrong'; b.textContent = wordClean[i] || ''; });
-  const isLast = S.quiz.qIdx === S.quiz.questions.length - 1;
-  const nextBtn = document.getElementById('quizNextBtn');
-  nextBtn.textContent = isLast ? 'See Results →' : 'Next Word →';
-  nextBtn.style.display = 'inline-block';
-});
 document.getElementById('quizNextBtn').addEventListener('click', quizNext);
 document.getElementById('quizRetryBtn').addEventListener('click', () => {
   document.getElementById('quizResult').style.display = 'none';
@@ -2961,6 +2718,8 @@ document.getElementById('quizCloseBtn').addEventListener('click', () => {
   document.getElementById('quizBody').classList.remove('open');
   document.getElementById('quizToggleIcon').classList.remove('open');
 });
+
+// Starred accordion
 document.getElementById('starredHeader').addEventListener('click', () => {
   const body = document.getElementById('starredBody');
   const icon = document.getElementById('starredToggleIcon');
@@ -2974,27 +2733,8 @@ document.getElementById('starredToggleBtn').addEventListener('click', () => {
   icon.classList.add('open');
   document.getElementById('starredSection').scrollIntoView({ behavior: 'smooth' });
 });
-document.getElementById('spellInput').addEventListener('input', e => {
-  updateBoxes(e.target.value);
-});
-document.getElementById('spellInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') { e.preventDefault(); checkSpelling(); }
-});
-document.getElementById('spellCheckBtn').addEventListener('click', checkSpelling);
-document.getElementById('spellRevealBtn').addEventListener('click', () => {
-  const word = GROUPS[S.gIdx][S.wIdx].word;
-  const fb = document.getElementById('spellFeedback');
-  fb.className = 'spell-feedback err';
-  fb.textContent = 'The word is "' + word + '". Try again next time!';
-  fb.style.display = 'block';
-  document.getElementById('spellRevealBtn').style.display = 'none';
-  const allBoxes = document.querySelectorAll('.spell-box');
-  const wordClean = word.toLowerCase().replace(/-/g,'');
-  allBoxes.forEach((b, i) => {
-    b.className = 'spell-box wrong';
-    b.textContent = wordClean[i] || '';
-  });
-});
+
+// Keyboard shortcuts
 document.addEventListener('keydown', e => {
   const tag = document.activeElement.tagName;
   if (tag === 'INPUT' || tag === 'TEXTAREA') return;
@@ -3010,13 +2750,10 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Initialize
-if (VOCAB.length > 1) {
-  render();
-} else {
-  document.getElementById('wordDisplay').textContent = 'Add Data';
-  document.getElementById('defEn').textContent = 'Please paste your 100 vocabulary words into the VOCAB array.';
-}
+// ============================================================
+// INIT
+// ============================================================
+render();
 </script>
 </body>
 </html>
